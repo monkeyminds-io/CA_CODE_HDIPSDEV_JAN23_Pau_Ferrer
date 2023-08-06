@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>CA_CODE_HDIPSDEV_JAN23_Pau_Ferrer</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - CA_CODE_HDIPSDEV_JAN23_Pau_Ferrer</name>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <!-- Google Proto Buffer | cross-platform data format used to serialize structured data -->
+    <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>3.23.2</version>
+    </dependency>
+
+    <!-- gRPC Netty Shaded | The main transport implementation based on Netty, for both the client and the server -->
+    <!-- https://mvnrepository.com/artifact/io.grpc/grpc-netty-shaded -->
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-netty-shaded</artifactId>
+      <version>1.57.1</version>
+    </dependency>
+
+    <!-- gRPC Protobuf | Protobuf is the most commonly used IDL (Interface Definition Language) for gRPC.
+    It's where you basically store your data and function contracts in the form of a proto file. -->
+    <!-- https://mvnrepository.com/artifact/io.grpc/grpc-protobuf -->
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-protobuf</artifactId>
+      <version>1.57.1</version>
+    </dependency>
+
+    <!-- gRPC Stub | The stub uses this channel to send RPCs to the service.
+    gRPC Java generates code for three types of stubs: asynchronous, blocking, and future.
+    Each type of stub has a corresponding class in the generated code, such as
+    ServiceNameStub , ServiceNameBlockingStub , and ServiceNameFutureStub  -->
+    <!-- https://mvnrepository.com/artifact/io.grpc/grpc-stub -->
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-stub</artifactId>
+      <version>1.57.1</version>
+    </dependency>
+
+    <!-- Google Guava | Guava is a set of core Java libraries from Google that includes new collection types -->
+    <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>32.1.2-jre</version>
+    </dependency>
+
+    <!-- Javax Annotation API | The Resource annotation marks a resource that is needed by the application. -->
+    <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.jmdns/jmdns -->
+    <dependency>
+      <groupId>javax.jmdns</groupId>
+      <artifactId>jmdns</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+  </dependencies>
+
+  <!-- UTF-8 | The encoding system for Unicode. -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+
+    <!-- These are the goals or actions that Maven will do on build project -->
+    <defaultGoal>clean generate-sources compile install</defaultGoal>
+
+    <plugins>
+
+      <!-- This plugin is the responsible for generating the files based on the proto files.
+      Have in mind the path to the input and the output of the files. -->
+      <plugin>
+        <groupId>com.github.os72</groupId>
+        <artifactId>protoc-jar-maven-plugin</artifactId>
+        <version>3.6.0.1</version>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <includeMavenTypes>direct</includeMavenTypes>
+              <inputDirectories>
+                <!-- This is the input path -->
+                <include>src/main/resources/proto</include>
+              </inputDirectories>
+              <outputTargets>
+                <outputTarget>
+                  <type>java</type>
+                  <!-- This is the output path for all your request and responses files -->
+                  <outputDirectory>src/main/java</outputDirectory>
+                </outputTarget>
+                <outputTarget>
+                  <type>grpc-java</type>
+                  <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.12.0</pluginArtifact>
+                  <!-- This is the output path for your ServiceGrpc file -->
+                  <outputDirectory>src/main/java</outputDirectory>
+                </outputTarget>
+              </outputTargets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

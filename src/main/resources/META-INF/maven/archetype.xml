@@ -1,0 +1,9 @@
+<archetype>
+  <id>CA_CODE_HDIPSDEV_JAN23_Pau_Ferrer</id>
+  <sources>
+    <source>src/main/java/App.java</source>
+  </sources>
+  <testSources>
+    <source>src/test/java/AppTest.java</source>
+  </testSources>
+</archetype>
