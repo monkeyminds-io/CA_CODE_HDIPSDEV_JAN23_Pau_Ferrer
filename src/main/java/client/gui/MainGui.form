@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="client.gui.MainGui">
   <grid id="27dc6" binding="mainPane" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="754" height="647"/>
     </constraints>
     <properties>
       <background color="-3355444"/>
@@ -45,118 +45,1862 @@
           </hspacer>
         </children>
       </grid>
-      <grid id="410cc" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="8" left="16" bottom="8" right="16"/>
-        <constraints border-constraint="West"/>
-        <properties>
-          <background color="-12879927"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="9f6f4" class="javax.swing.JButton" binding="authRegisterButton">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Register User"/>
-            </properties>
-          </component>
-          <component id="4cb90" class="javax.swing.JButton" binding="bookingRequestButton">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Request Appointment"/>
-            </properties>
-          </component>
-          <component id="52d65" class="javax.swing.JButton" binding="bookingUpdateButton">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Update Appointment"/>
-            </properties>
-          </component>
-          <component id="726a3" class="javax.swing.JButton" binding="bookingCancelButton">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Cancel Appointment"/>
-            </properties>
-          </component>
-          <component id="c9e9f" class="javax.swing.JButton" binding="prescruptionCreateButton">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Create Prescription"/>
-            </properties>
-          </component>
-          <component id="b7de7" class="javax.swing.JButton" binding="prescriptionsDisplayAllButton">
-            <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Display All Prescriptions"/>
-            </properties>
-          </component>
-          <component id="981df" class="javax.swing.JButton" binding="prescriptionsDisplayButton">
-            <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Display Prescription"/>
-            </properties>
-          </component>
-          <component id="c8931" class="javax.swing.JButton" binding="dashboardButton" default-binding="true">
-            <constraints>
-              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="160" height="48"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Dashboard"/>
-            </properties>
-          </component>
-          <vspacer id="46a2d">
-            <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
-        </children>
-      </grid>
-      <grid id="8a974" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="16" left="16" bottom="16" right="16"/>
+      <tabbedpane id="f2a09" binding="tabbedPane1" default-binding="true">
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-3355444"/>
+          <font size="16"/>
+          <tabPlacement value="1"/>
         </properties>
         <border type="none"/>
-        <children/>
-      </grid>
+        <children>
+          <grid id="f59dc" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Users"/>
+            </constraints>
+            <properties>
+              <background color="-3355444"/>
+              <font/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="486c8" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                <margin top="16" left="16" bottom="16" right="16"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="cea66" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-15329770"/>
+                      <font size="24" style="1"/>
+                      <text value="Register User:"/>
+                    </properties>
+                  </component>
+                  <grid id="f5182" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="23a3c" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="128" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-15329770"/>
+                          <font size="16"/>
+                          <foreground color="-15329770"/>
+                          <labelFor value="49ebb"/>
+                          <text value="First Name"/>
+                        </properties>
+                      </component>
+                      <component id="49ebb" class="javax.swing.JTextField" binding="firstNameField">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="32"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font size="16"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="98d55" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="c951e" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="128" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-15329770"/>
+                          <font size="16"/>
+                          <foreground color="-15329770"/>
+                          <labelFor value="86a5f"/>
+                          <text value="Last Name"/>
+                        </properties>
+                      </component>
+                      <component id="86a5f" class="javax.swing.JTextField" binding="lastNameField">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="32"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font size="16"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="a74aa" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="3191a" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="128" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-15329770"/>
+                          <font size="16"/>
+                          <foreground color="-15329770"/>
+                          <labelFor value="64bbc"/>
+                          <text value="Email"/>
+                        </properties>
+                      </component>
+                      <component id="64bbc" class="javax.swing.JTextField" binding="emailField">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="32"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font size="16"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="d7e32" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="ea078" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="128" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-15329770"/>
+                          <font size="16"/>
+                          <foreground color="-15329770"/>
+                          <labelFor value="de732"/>
+                          <text value="Password"/>
+                        </properties>
+                      </component>
+                      <component id="de732" class="javax.swing.JPasswordField" binding="passwordField">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="32"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font size="16"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="8d443" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="96b40" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="128" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-15329770"/>
+                          <font size="16"/>
+                          <foreground color="-15329770"/>
+                          <labelFor value="da062"/>
+                          <text value="Role"/>
+                        </properties>
+                      </component>
+                      <component id="da062" class="javax.swing.JComboBox" binding="roleComboBox">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <component id="d4877" class="javax.swing.JButton" binding="registerButton">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="48"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font size="16" style="1"/>
+                      <text value="SUBMIT"/>
+                    </properties>
+                  </component>
+                  <vspacer id="712ad">
+                    <constraints>
+                      <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <grid id="64ecb" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="16" left="16" bottom="16" right="16"/>
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <scrollpane id="2ad43">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="400" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <horizontalScrollBarPolicy value="31"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="327a1" class="javax.swing.JTextPane" binding="registerOutputPane">
+                        <constraints/>
+                        <properties>
+                          <background color="-15329770"/>
+                          <editable value="false"/>
+                          <font name="Andale Mono" size="16"/>
+                          <foreground color="-1"/>
+                          <text value="Output will show here..."/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="e88d9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Appointments"/>
+            </constraints>
+            <properties>
+              <background color="-3355444"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <tabbedpane id="4682f" binding="tabbedPane2" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="200"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <font/>
+                  <tabPlacement value="1"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <grid id="8b5d8" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <tabbedpane title="Create"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="24cfb" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="e78e8" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="24" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="Create Appointment"/>
+                            </properties>
+                          </component>
+                          <grid id="4fde4" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="e50f8" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="3c12d"/>
+                                  <text value="Patient"/>
+                                </properties>
+                              </component>
+                              <component id="3c12d" class="javax.swing.JComboBox" binding="patientCreateBookingComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="c1481" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="fe580" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="60d2f"/>
+                                  <text value="Doctor"/>
+                                </properties>
+                              </component>
+                              <component id="60d2f" class="javax.swing.JComboBox" binding="doctorCreateBookingComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="ce1b" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="33121" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="c36bd" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="5e654"/>
+                                      <text value="Day"/>
+                                    </properties>
+                                  </component>
+                                  <component id="5e654" class="javax.swing.JComboBox" binding="dayCreateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="37a31" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="cb82" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="902f5"/>
+                                      <text value="Month"/>
+                                    </properties>
+                                  </component>
+                                  <component id="902f5" class="javax.swing.JComboBox" binding="monthCreateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="f2ab8" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="a6dbc" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="9bbfa"/>
+                                      <text value="Year"/>
+                                    </properties>
+                                  </component>
+                                  <component id="9bbfa" class="javax.swing.JComboBox" binding="yearCreateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="bd6bd" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="74bd3" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="b32c6"/>
+                                      <text value="Slot"/>
+                                    </properties>
+                                  </component>
+                                  <component id="b32c6" class="javax.swing.JComboBox" binding="slotCreateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <component id="8647a" class="javax.swing.JButton" binding="createBookingButton">
+                            <constraints>
+                              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="CREATE APPOINTMENT"/>
+                            </properties>
+                          </component>
+                          <vspacer id="a5a09">
+                            <constraints>
+                              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="3e91" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="a9d4">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="400" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <horizontalScrollBarPolicy value="31"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="bd4e7" class="javax.swing.JTextPane" binding="createBookingOutputPane">
+                                <constraints/>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <editable value="false"/>
+                                  <font name="Andale Mono" size="16"/>
+                                  <foreground color="-1"/>
+                                  <text value="Output will show here..."/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="cba98" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <tabbedpane title="Update"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="9837b" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="f2a2a" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="24" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="Update Appointment"/>
+                            </properties>
+                          </component>
+                          <grid id="14c3b" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="9d9f7" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="e80fe"/>
+                                  <text value="Id"/>
+                                </properties>
+                              </component>
+                              <component id="e80fe" class="javax.swing.JComboBox" binding="idUpdateBookingComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="77080" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="b4528" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="1a657"/>
+                                  <text value="Patient"/>
+                                </properties>
+                              </component>
+                              <component id="1a657" class="javax.swing.JComboBox" binding="patientUpdateBookingComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="87dec" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="9bb1a" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="9283f"/>
+                                  <text value="Doctor"/>
+                                </properties>
+                              </component>
+                              <component id="9283f" class="javax.swing.JComboBox" binding="doctorUpdateBookingComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="9f55b" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="18650" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="e106d" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="ebb15"/>
+                                      <text value="Day"/>
+                                    </properties>
+                                  </component>
+                                  <component id="ebb15" class="javax.swing.JComboBox" binding="dayUpdateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <font size="16"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="7e606" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="b805e" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="ea75c"/>
+                                      <text value="Month"/>
+                                    </properties>
+                                  </component>
+                                  <component id="ea75c" class="javax.swing.JComboBox" binding="monthUpdateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <font size="16"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="b04fe" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="30d8" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="d5562"/>
+                                      <text value="Year"/>
+                                    </properties>
+                                  </component>
+                                  <component id="d5562" class="javax.swing.JComboBox" binding="yearUpdateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <font size="16"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="5dd10" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="fd0d4" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="87726"/>
+                                      <text value="Slot"/>
+                                    </properties>
+                                  </component>
+                                  <component id="87726" class="javax.swing.JComboBox" binding="slotUpdateBookingComboBox">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <font size="16"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <component id="ce73b" class="javax.swing.JButton" binding="updateBookingButton">
+                            <constraints>
+                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="UPDATE APPOINTMENT"/>
+                            </properties>
+                          </component>
+                          <vspacer id="fdfef">
+                            <constraints>
+                              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                          <component id="c387f" class="javax.swing.JButton" binding="getDataBookingButton">
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="GET APPOINTMENT"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <grid id="62b0e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="35f45">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="400" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                              <horizontalScrollBarPolicy value="31"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="85255" class="javax.swing.JTextPane" binding="updateBookingOutputPane">
+                                <constraints/>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font name="Andale Mono" size="16"/>
+                                  <foreground color="-1"/>
+                                  <text value="Output will show here..."/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="b42be" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <tabbedpane title="Cancel"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="a14b" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="a4044" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="24" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="Cancel Appointment"/>
+                            </properties>
+                          </component>
+                          <grid id="c8ae4" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="456cb" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="52987"/>
+                                  <text value="Id"/>
+                                </properties>
+                              </component>
+                              <component id="52987" class="javax.swing.JComboBox" binding="idCancelBookingComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="488c8" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="a985f" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="103f0"/>
+                                  <text value="Patient"/>
+                                </properties>
+                              </component>
+                              <component id="103f0" class="javax.swing.JTextField" binding="patientCancelBookingTextField">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                    <preferred-size width="150" height="32"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <editable value="false"/>
+                                  <enabled value="true"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="63e71" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="c5b1a" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="3cfd9"/>
+                                  <text value="Doctor"/>
+                                </properties>
+                              </component>
+                              <component id="3cfd9" class="javax.swing.JTextField" binding="doctorCancelBookingTextField">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                    <preferred-size width="150" height="32"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <editable value="false"/>
+                                  <enabled value="true"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="2fa5" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="3727b" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="c9b2f" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="1b44c"/>
+                                      <text value="Day"/>
+                                    </properties>
+                                  </component>
+                                  <component id="1b44c" class="javax.swing.JTextField" binding="dayCancelBookingTextField">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="32"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <editable value="false"/>
+                                      <enabled value="true"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="118c3" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="b8c69" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="41fb5"/>
+                                      <text value="Month"/>
+                                    </properties>
+                                  </component>
+                                  <component id="41fb5" class="javax.swing.JTextField" binding="monthCancelBookingTextField">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="32"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <editable value="false"/>
+                                      <enabled value="true"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="e5b6a" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="fb519" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="d9c79"/>
+                                      <text value="Year"/>
+                                    </properties>
+                                  </component>
+                                  <component id="d9c79" class="javax.swing.JTextField" binding="yearCancelBookingTextField">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="32"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <editable value="false"/>
+                                      <enabled value="true"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="1309" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="3e494" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="4d22a"/>
+                                      <text value="Slot"/>
+                                    </properties>
+                                  </component>
+                                  <component id="4d22a" class="javax.swing.JTextField" binding="slotCancelBookingTextField">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="32"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <editable value="false"/>
+                                      <enabled value="true"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <component id="7caa0" class="javax.swing.JButton" binding="cancelBookingButton">
+                            <constraints>
+                              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="SUBMIT"/>
+                            </properties>
+                          </component>
+                          <vspacer id="faba9">
+                            <constraints>
+                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="6fb9d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="9f174">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="400" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                              <horizontalScrollBarPolicy value="31"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="71fe2" class="javax.swing.JTextPane" binding="cancelBookingOutputPane">
+                                <constraints/>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font name="Andale Mono" size="16"/>
+                                  <foreground color="-1"/>
+                                  <text value="Output will show here..."/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="bc571" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <tabbedpane title="Shift List"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="8257d" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="2a70d" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="24" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="Shift List Appointments"/>
+                            </properties>
+                          </component>
+                          <component id="b48d5" class="javax.swing.JCheckBox" binding="doctor1ShiftListBookingCheckBox">
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="16"/>
+                              <text value="CheckBox"/>
+                            </properties>
+                          </component>
+                          <component id="b6074" class="javax.swing.JCheckBox" binding="doctor2ShiftListBookingCheckBox">
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="16"/>
+                              <text value="CheckBox"/>
+                            </properties>
+                          </component>
+                          <component id="23817" class="javax.swing.JCheckBox" binding="doctor3ShiftListBookingCheckBox">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="16"/>
+                              <text value="CheckBox"/>
+                            </properties>
+                          </component>
+                          <component id="6c618" class="javax.swing.JCheckBox" binding="doctor4ShiftListBookingCheckBox">
+                            <constraints>
+                              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="16"/>
+                              <text value="CheckBox"/>
+                            </properties>
+                          </component>
+                          <component id="a6c41" class="javax.swing.JButton" binding="shiftListButton">
+                            <constraints>
+                              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="SUBMIT"/>
+                            </properties>
+                          </component>
+                          <vspacer id="a3d9f">
+                            <constraints>
+                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="e24a0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="4f7d">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="400" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                              <horizontalScrollBarPolicy value="31"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="16743" class="javax.swing.JTextPane" binding="shiftListBookingOutputPane">
+                                <constraints/>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font name="Andale Mono" size="16"/>
+                                  <foreground color="-1"/>
+                                  <text value="Output will show here..."/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </tabbedpane>
+            </children>
+          </grid>
+          <grid id="acda2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Prescriptions"/>
+            </constraints>
+            <properties>
+              <background color="-3355444"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <tabbedpane id="99062" binding="tabbedPane3" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="200"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <grid id="6a92b" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <tabbedpane title="Create"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="f5590" layout-manager="GridLayoutManager" row-count="11" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="6f0e3" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="24" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="Create Prescription"/>
+                            </properties>
+                          </component>
+                          <grid id="20387" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="f8388" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="c1da6"/>
+                                  <text value="Patient"/>
+                                </properties>
+                              </component>
+                              <component id="c1da6" class="javax.swing.JComboBox" binding="patientCreatePrescriptionComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="a78ba" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="3694b" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="fe2a"/>
+                                  <text value="Doctor"/>
+                                </properties>
+                              </component>
+                              <component id="fe2a" class="javax.swing.JComboBox" binding="doctorCreatePrescriptionComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <component id="64aba" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="16" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="Add Drugs"/>
+                            </properties>
+                          </component>
+                          <grid id="785b9" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="7894e" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="35818" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="a0ae0"/>
+                                      <text value="Drug Name"/>
+                                    </properties>
+                                  </component>
+                                  <component id="a0ae0" class="javax.swing.JTextField" binding="drugNameCreatePrescriptionField">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="32"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="62166" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-3355444"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="39be8" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-15329770"/>
+                                      <font size="16"/>
+                                      <foreground color="-15329770"/>
+                                      <labelFor value="6d7fa"/>
+                                      <text value="Doses"/>
+                                    </properties>
+                                  </component>
+                                  <component id="6d7fa" class="javax.swing.JSpinner" binding="dosesCreatePrescriptionSpinner">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="80" height="32"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <grid id="67c7c" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="c6dfb" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="a97aa"/>
+                                  <text value="Comments / Notes"/>
+                                </properties>
+                              </component>
+                              <component id="a97aa" class="javax.swing.JTextArea" binding="commentCreatePrescriptionTextArea">
+                                <constraints>
+                                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                    <preferred-size width="160" height="80"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <lineWrap value="true"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <component id="c8942" class="javax.swing.JButton" binding="addDrugToPrescriptionButton">
+                            <constraints>
+                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="ADD DRUG"/>
+                            </properties>
+                          </component>
+                          <grid id="e2253" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="8" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="8fa1e" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="80" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font size="16"/>
+                                  <foreground color="-15329770"/>
+                                  <labelFor value="e4d03"/>
+                                  <text value="Expiry"/>
+                                </properties>
+                              </component>
+                              <component id="e4d03" class="javax.swing.JComboBox" binding="expiryCreatePrescriptionComboBox">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </grid>
+                          <component id="cec49" class="javax.swing.JButton" binding="createPrescriptionButton">
+                            <constraints>
+                              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="CREATE PRESCRIPTION"/>
+                            </properties>
+                          </component>
+                          <vspacer id="ecf1c">
+                            <constraints>
+                              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="30d05" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="6c469">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="400" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                              <horizontalScrollBarPolicy value="31"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="89ea5" class="javax.swing.JTextPane" binding="createPrescriptionOutputPane">
+                                <constraints/>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font name="Andale Mono" size="16"/>
+                                  <foreground color="-1"/>
+                                  <text value="Output will show here..."/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="87c87" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <tabbedpane title="View All"/>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="a201e" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="dee82" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-15329770"/>
+                              <font size="24" style="1"/>
+                              <foreground color="-15329770"/>
+                              <text value="View All Prescriptions"/>
+                            </properties>
+                          </component>
+                          <component id="2bfcf" class="javax.swing.JButton" binding="viewAllPrescriptionsButton">
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="48"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <font size="16" style="1"/>
+                              <text value="GET ALL PRESCRIPTIONS"/>
+                            </properties>
+                          </component>
+                          <vspacer id="ffa6">
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="8baef" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="16" left="16" bottom="16" right="16"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-3355444"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="31e7e">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="400" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-3355444"/>
+                              <horizontalScrollBarPolicy value="31"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="88a9c" class="javax.swing.JTextPane" binding="viewAllPrescriptionsOutputPane">
+                                <constraints/>
+                                <properties>
+                                  <background color="-15329770"/>
+                                  <font name="Andale Mono" size="16"/>
+                                  <foreground color="-1"/>
+                                  <text value="Output will show here..."/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </tabbedpane>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
     </children>
   </grid>
+  <inspectionSuppressions>
+    <suppress inspection="I18nForm"/>
+  </inspectionSuppressions>
 </form>

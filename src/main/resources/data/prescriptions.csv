@@ -1,1 +1,1 @@
-id,patient_id,doctor_id,drug,doses,comment,expiry_date,created_at,updated_at
+id,patient_id,doctor_id,expiry_date,created_at,updated_at
