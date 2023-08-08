@@ -1,5 +1,8 @@
 package client.gui.auth;
 
+import client.gui.MainGui;
+import client.services.AuthService;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,16 +34,25 @@ public class LoginGui extends JFrame {
         loginButton.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == 10) loginButtonClicked();;
+                if(e.getKeyCode() == 10) loginButtonClicked();
             }
         });
     }
 
     private void loginButtonClicked() {
-        //TODO login code here
+        // Get data from fields
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());
-        System.out.println(email);
-        System.out.println(password);
+        // Call Auth login() method
+        AuthService authService = new AuthService();
+        String response = authService.login(email, password);
+        if(response == "true") {
+            // Close login window
+            this.dispose();
+            // Open dashboard window
+            new MainGui();
+        } else {
+            JOptionPane.showMessageDialog(this, response, "Wrong credentials", JOptionPane.WARNING_MESSAGE);
+        }
     }
 }

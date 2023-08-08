@@ -1,9 +1,11 @@
 id,first_name,last_name,email,password,role
 1,Alfy,Scrace,alfy.scrace@healthfirst.com,1234Asd$,doctor
 2,Lotty,Massard,lotty.massard@healthfirst.com,1234Asd$,doctor
-3,Essie,Elbourne,essie.elbourne@healthfirst.com,1234Asd$,nurse
-4,Willetta,Wackly,willetta.wackly@healthfirst.com,1234Asd$,nurse
-5,Cordie,Shoubridge,cshoubridge2@gmail.com,1234Asd$,patient
-6,Jilly,Pittel,jpittel6@gmail.com,1234Asd$,patient
-7,Etienne,Gotling,egotling7@gmail.com,1234Asd$,patient
-8,Edmon,Brychan,ebrychan8@gmail.com,1234Asd$,patient
+3,Paul,Smith,paul.smith@healthfirst.com,1234Asd$,doctor
+4,Jane,Doe,jane.doe@healthfirst.com,1234Asd$,doctor
+5,Essie,Elbourne,essie.elbourne@healthfirst.com,1234Asd$,nurse
+6,Willetta,Wackly,willetta.wackly@healthfirst.com,1234Asd$,nurse
+7,Cordie,Shoubridge,cshoubridge2@gmail.com,1234Asd$,patient
+8,Jilly,Pittel,jpittel6@gmail.com,1234Asd$,patient
+9,Etienne,Gotling,egotling7@gmail.com,1234Asd$,patient
+10,Edmon,Brychan,ebrychan8@gmail.com,1234Asd$,patient

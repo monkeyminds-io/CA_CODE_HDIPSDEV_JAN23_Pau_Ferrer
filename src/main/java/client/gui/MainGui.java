@@ -2,13 +2,17 @@ package client.gui;
 
 import client.controllers.Appointment;
 import client.controllers.Prescription;
+import client.services.AuthService;
 import client.services.BookingService;
 import client.services.PrescriptionsService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Objects;
 
 public class MainGui extends JFrame {
@@ -70,18 +74,32 @@ public class MainGui extends JFrame {
     private JButton addDrugToPrescriptionButton;
     private JButton createPrescriptionButton;
     private JButton getDataBookingButton;
+    private JButton getDataCancelBookingButton;
 
     public MainGui() {
+        // DB Data
+        ArrayList<String[]> users = getDataFromCsv(new File("src/main/resources/data/users.csv").getAbsolutePath());
+        ArrayList<String[]> appointments = getDataFromCsv(new File("src/main/resources/data/appointments.csv").getAbsolutePath());
+        ArrayList<String[]> prescriptions = getDataFromCsv(new File("src/main/resources/data/prescriptions.csv").getAbsolutePath());
+        ArrayList<String[]> drugs = getDataFromCsv(new File("src/main/resources/data/drugs.csv").getAbsolutePath());
+        // Displaying the JFrame
         setTitle("Health First | Dashboard");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1024, 720);
         setContentPane(this.mainPane);
         setLocationRelativeTo(null);
         setVisible(true);
-
+        // Init service tabs
         this.initAuthTab();
-        this.initBookingsTab();
-        this.initPrescriptionsTab();
+        this.initBookingsTab(users, appointments);
+        this.initPrescriptionsTab(users);
+        authLogoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int option = JOptionPane.showConfirmDialog(MainGui.super.rootPane, "Are you sure you want to leave?", "Logging out", JOptionPane.YES_NO_OPTION);
+                if(option == 0) MainGui.super.dispose();
+            }
+        });
     }
 
     private void initAuthTab() {
@@ -90,27 +108,82 @@ public class MainGui extends JFrame {
         roleComboBox.addItem("Patient");
         roleComboBox.addItem("Doctor");
         roleComboBox.addItem("Nurse");
+
+        // Auth service
+        AuthService authService = new AuthService();
+
+        // Register User event
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get data from fields
+                String firstName = firstNameField.getText();
+                String lastName = lastNameField.getText();
+                String email = emailField.getText();
+                String password = new String(passwordField.getPassword());
+                String role = roleComboBox.getSelectedItem().toString();
+                // Update Output text
+                updateOutputPane(registerOutputPane, "Registering user with:" +
+                        "\n  First Name: " + firstName +
+                        "\n  Last Name: " + lastName +
+                        "\n  Email: " + email +
+                        "\n  Role: " + role +
+                        "\nPlease wait...");
+                try {
+                    // Call Auth register() method
+                    authService.register(firstName, lastName, email, password, role);
+                    Thread.sleep(2000);
+                    // Update Output text
+                    updateOutputPane(registerOutputPane, "User registered successfully! 🥳");
+                    // Reset fields
+                    firstNameField.setText("");
+                    lastNameField.setText("");
+                    emailField.setText("");
+                    passwordField.setText("");
+                    roleComboBox.setSelectedItem("Select from list...");
+                } catch(InterruptedException ex) {
+                    // Update Output text
+                    updateOutputPane(registerOutputPane, "Ups! Something went wrong... 🤯");
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
-    private void initBookingsTab() {
+    private void initBookingsTab(ArrayList<String[]> users, ArrayList<String[]> appointments) {
         // Local variables
-        String[] idsList = {"Select from list...", "1", "2", "3"};
-        String[] patientIdList = {"Select from list...", "5"};
-        String[] doctorsIdList = {"Select from list...", "1"};
-        String[] daysList = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+        ArrayList<String> idsList = new ArrayList<>();
+        idsList.add("Select from list...");
+        for (int i = 0; i < appointments.size(); i++) {
+            idsList.add(appointments.get(i)[0]);
+        }
+        ArrayList<String> patientIdList = new ArrayList<>();
+        patientIdList.add("Select from list...");
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i)[5].equalsIgnoreCase("patient")) patientIdList.add(users.get(i)[0]);
+        }
+        ArrayList<String> doctorsIdList = new ArrayList<>();
+        doctorsIdList.add("Select from list...");
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i)[5].equalsIgnoreCase("doctor")) doctorsIdList.add(users.get(i)[0]);
+        }
+        ArrayList<String> daysList = new ArrayList<>(Arrays.asList("01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                 "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-                "31"};
-        String[] monthsList = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
-        String[] yearsList = {"2023", "2024"};
-        String[] slotsList = {"8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
-                "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", };
+                "31"));
+        ArrayList<String> monthsList = new ArrayList<>(Arrays.asList("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"));
+        ArrayList<String> yearsList = new ArrayList<>(Arrays.asList("2023", "2024"));
+        ArrayList<String> slotsList = new ArrayList<>(Arrays.asList("8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
+                "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"));
+        ArrayList<String> doctorsNameList = new ArrayList<>();
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i)[5].equalsIgnoreCase("doctor")) doctorsNameList.add(users.get(i)[1] + " " + users.get(i)[2]);
+        }
 
         // Services Instances
         BookingService bookingService = new BookingService();
 
         // Combo Boxes settings
-        // TODO use proper data
         addItemsToComboBox(patientCreateBookingComboBox, patientIdList);
         addItemsToComboBox(doctorCreateBookingComboBox, doctorsIdList);
         addItemsToComboBox(dayCreateBookingComboBox, daysList);
@@ -126,6 +199,19 @@ public class MainGui extends JFrame {
         addItemsToComboBox(yearUpdateBookingComboBox, yearsList);
         addItemsToComboBox(slotUpdateBookingComboBox, slotsList);
 
+        addItemsToComboBox(idCancelBookingComboBox, idsList);
+
+        // Update CheckBox labels
+        JCheckBox[] checkBoxes = {
+                doctor1ShiftListBookingCheckBox,
+                doctor2ShiftListBookingCheckBox,
+                doctor3ShiftListBookingCheckBox,
+                doctor4ShiftListBookingCheckBox};
+
+        for (int i = 0; i < checkBoxes.length; i++) {
+            checkBoxes[i].setText(doctorsNameList.get(i));
+        }
+
         // Create Booking event
         createBookingButton.addActionListener(new ActionListener() {
             @Override
@@ -139,9 +225,9 @@ public class MainGui extends JFrame {
                         slotCreateBookingComboBox.getSelectedItem().toString();
                 // Update Output text
                 updateOutputPane(createBookingOutputPane, "Creating appointment with:" +
-                        "\nPatient id: " + patientId +
-                        "\nDoctor id: " + doctorId +
-                        "\nSlot: " + dateTime +
+                        "\n  Patient id: " + patientId +
+                        "\n  Doctor id: " + doctorId +
+                        "\n  Slot: " + dateTime +
                         "\nPlease wait...");
                 try {
                     // Call Booking create() method
@@ -228,30 +314,112 @@ public class MainGui extends JFrame {
             }
         });
 
+        // Get Appointment data for cancel event
+        getDataCancelBookingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get data from fields
+                int id = Integer.parseInt(Objects.requireNonNull(idCancelBookingComboBox.getSelectedItem()).toString());
+                // Update Output text
+                updateOutputPane(cancelBookingOutputPane, "Getting appointment data...");
+                try {
+                    // Call Booking get() method
+//                    Appointment appointment = bookingService.get(id);
+                    Appointment appointment = new Appointment(1, 5, 1, "08-AUG-2023 @ 13:30");
+                    Thread.sleep(2000L);
+                    // Populate fields
+                    patientCancelBookingTextField.setText(String.valueOf(appointment.getPatientId()));
+                    doctorCancelBookingTextField.setText(String.valueOf(appointment.getDoctorId()));
+                    dayCancelBookingTextField.setText(appointment.getDateTime().substring(0, 2));
+                    monthCancelBookingTextField.setText(appointment.getDateTime().substring(3, 6));
+                    yearCancelBookingTextField.setText(appointment.getDateTime().substring(7, 11));
+                    slotCancelBookingTextField.setText(appointment.getDateTime().substring(14, 19));
+                } catch(InterruptedException ex) {
+                    // Update Output text
+                    updateOutputPane(cancelBookingOutputPane, "Ups! Something went wrong... 🤯");
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         // Cancel Appointment event
         cancelBookingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO
+                // Get data from fields
+                int id = Integer.parseInt(Objects.requireNonNull(idCancelBookingComboBox.getSelectedItem()).toString());
+                // Update Output text
+                updateOutputPane(cancelBookingOutputPane, "Canceling appointment " + id + "...");
+                try {
+                    // Call Booking update() method
+                    bookingService.cancel(id);
+                    Thread.sleep(2000L);
+                    // Reset fields
+                    idCancelBookingComboBox.setSelectedItem("Select from list...");
+                    patientCancelBookingTextField.setText("");
+                    doctorCancelBookingTextField.setText("");
+                    dayCancelBookingTextField.setText("");
+                    monthCancelBookingTextField.setText("");
+                    yearCancelBookingTextField.setText("");
+                    slotCancelBookingTextField.setText("");
+                    // Update Output text
+                    updateOutputPane(updateBookingOutputPane, "Appointment updated successfully! 🥳");
+                } catch(InterruptedException ex) {
+                    // Update Output text
+                    updateOutputPane(cancelBookingOutputPane, "Ups! Something went wrong... 🤯");
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+        // Shift Appointments event
+        shiftListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get data from check boxes
+                ArrayList<Integer> shiftDoctorsIds = new ArrayList<>();
+                for(int i = 0; i < checkBoxes.length; i++) {
+                    if(checkBoxes[i].isSelected()) shiftDoctorsIds.add(Integer.parseInt(doctorsIdList.get(i + 1)));
+                }
+                updateOutputPane(shiftListBookingOutputPane, "Getting appointments...");
+                try {
+                    // Call Bookings getShiftAppointments() method
+                    ArrayList<Appointment> shiftAppointments = bookingService.getShiftAppointments(shiftDoctorsIds);
+                    Thread.sleep(2000L);
+                    // Reset fields
+                    for(JCheckBox checkBox : checkBoxes) checkBox.setSelected(false);
+                    // Update Output text
+                    for(Appointment appointment : shiftAppointments) updateOutputPane(shiftListBookingOutputPane, appointment.toString());
+                } catch(InterruptedException ex) {
+                    // Update Output text
+                    updateOutputPane(cancelBookingOutputPane, "Ups! Something went wrong... 🤯");
+                    ex.printStackTrace();
+                }
             }
         });
     }
 
-    private void initPrescriptionsTab() {
+    private void initPrescriptionsTab(ArrayList<String[]> users) {
         // Local variables
         ArrayList<String[]> drugs = new ArrayList<>();
+        ArrayList<String> patientIdList = new ArrayList<>();
+        patientIdList.add("Select from list...");
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i)[5].equalsIgnoreCase("patient")) patientIdList.add(users.get(i)[0]);
+        }
+        ArrayList<String> doctorsIdList = new ArrayList<>();
+        doctorsIdList.add("Select from list...");
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i)[5].equalsIgnoreCase("doctor")) doctorsIdList.add(users.get(i)[0]);
+        }
 
         // Services Instances
         PrescriptionsService prescriptionsService = new PrescriptionsService();
 
         // Combo Boxes settings
-        // TODO use proper data
-        patientCreatePrescriptionComboBox.addItem("Select from list...");
-        patientCreatePrescriptionComboBox.addItem("5");
+        addItemsToComboBox(patientCreatePrescriptionComboBox, patientIdList);
 
-        // TODO use proper data
-        doctorCreatePrescriptionComboBox.addItem("Select from list...");
-        doctorCreatePrescriptionComboBox.addItem("1");
+        addItemsToComboBox(doctorCreatePrescriptionComboBox, doctorsIdList);
 
         expiryCreatePrescriptionComboBox.addItem("Select from list...");
         expiryCreatePrescriptionComboBox.addItem("60");
@@ -333,12 +501,26 @@ public class MainGui extends JFrame {
         });
     }
 
-    private void addItemsToComboBox(JComboBox comboBox, String[] items) {
+    private void addItemsToComboBox(JComboBox comboBox, ArrayList<String> items) {
         for (String item : items) comboBox.addItem(item);
     }
 
     private void updateOutputPane(JTextPane outputPane, String newText) {
         String currentText = outputPane.getText();
         outputPane.setText(currentText + "\n" + newText);
+    }
+
+    private ArrayList<String[]> getDataFromCsv(String filePath) {
+        ArrayList<String[]> data = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String headers = br.readLine();
+            String record;
+            while((record = br.readLine()) != null) {
+                data.add(record.split(","));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 }
