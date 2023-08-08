@@ -94,85 +94,37 @@ public class MainGui extends JFrame {
 
     private void initBookingsTab() {
         // Local variables
+        String[] idsList = {"Select from list...", "1", "2", "3"};
+        String[] patientIdList = {"Select from list...", "5"};
+        String[] doctorsIdList = {"Select from list...", "1"};
+        String[] daysList = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+                "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+                "31"};
+        String[] monthsList = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+        String[] yearsList = {"2023", "2024"};
+        String[] slotsList = {"8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
+                "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", };
 
         // Services Instances
         BookingService bookingService = new BookingService();
 
         // Combo Boxes settings
         // TODO use proper data
-        patientCreateBookingComboBox.addItem("Select from list...");
-        patientCreateBookingComboBox.addItem("5");
+        addItemsToComboBox(patientCreateBookingComboBox, patientIdList);
+        addItemsToComboBox(doctorCreateBookingComboBox, doctorsIdList);
+        addItemsToComboBox(dayCreateBookingComboBox, daysList);
+        addItemsToComboBox(monthCreateBookingComboBox, monthsList);
+        addItemsToComboBox(yearCreateBookingComboBox, yearsList);
+        addItemsToComboBox(slotCreateBookingComboBox, slotsList);
 
-        // TODO use proper data
-        doctorCreateBookingComboBox.addItem("Select from list...");
-        doctorCreateBookingComboBox.addItem("1");
-
-        dayCreateBookingComboBox.addItem("01");
-        dayCreateBookingComboBox.addItem("02");
-        dayCreateBookingComboBox.addItem("03");
-        dayCreateBookingComboBox.addItem("04");
-        dayCreateBookingComboBox.addItem("05");
-        dayCreateBookingComboBox.addItem("06");
-        dayCreateBookingComboBox.addItem("07");
-        dayCreateBookingComboBox.addItem("08");
-        dayCreateBookingComboBox.addItem("09");
-        dayCreateBookingComboBox.addItem("10");
-        dayCreateBookingComboBox.addItem("11");
-        dayCreateBookingComboBox.addItem("12");
-        dayCreateBookingComboBox.addItem("13");
-        dayCreateBookingComboBox.addItem("14");
-        dayCreateBookingComboBox.addItem("15");
-        dayCreateBookingComboBox.addItem("16");
-        dayCreateBookingComboBox.addItem("17");
-        dayCreateBookingComboBox.addItem("18");
-        dayCreateBookingComboBox.addItem("19");
-        dayCreateBookingComboBox.addItem("20");
-        dayCreateBookingComboBox.addItem("21");
-        dayCreateBookingComboBox.addItem("22");
-        dayCreateBookingComboBox.addItem("23");
-        dayCreateBookingComboBox.addItem("24");
-        dayCreateBookingComboBox.addItem("25");
-        dayCreateBookingComboBox.addItem("26");
-        dayCreateBookingComboBox.addItem("27");
-        dayCreateBookingComboBox.addItem("28");
-        dayCreateBookingComboBox.addItem("29");
-        dayCreateBookingComboBox.addItem("30");
-        dayCreateBookingComboBox.addItem("31");
-
-        monthCreateBookingComboBox.addItem("JAN");
-        monthCreateBookingComboBox.addItem("FEB");
-        monthCreateBookingComboBox.addItem("MAR");
-        monthCreateBookingComboBox.addItem("APR");
-        monthCreateBookingComboBox.addItem("MAY");
-        monthCreateBookingComboBox.addItem("JUN");
-        monthCreateBookingComboBox.addItem("JUL");
-        monthCreateBookingComboBox.addItem("AUG");
-        monthCreateBookingComboBox.addItem("SEP");
-        monthCreateBookingComboBox.addItem("OCT");
-        monthCreateBookingComboBox.addItem("NOV");
-        monthCreateBookingComboBox.addItem("DEC");
-
-        yearCreateBookingComboBox.addItem("2023");
-        yearCreateBookingComboBox.addItem("2024");
-
-        slotCreateBookingComboBox.addItem("8:00");
-        slotCreateBookingComboBox.addItem("8:30");
-        slotCreateBookingComboBox.addItem("9:00");
-        slotCreateBookingComboBox.addItem("9:30");
-        slotCreateBookingComboBox.addItem("10:00");
-        slotCreateBookingComboBox.addItem("10:30");
-        slotCreateBookingComboBox.addItem("11:00");
-        slotCreateBookingComboBox.addItem("11:30");
-        slotCreateBookingComboBox.addItem("12:00");
-        slotCreateBookingComboBox.addItem("12:30");
-        slotCreateBookingComboBox.addItem("13:30");
-        slotCreateBookingComboBox.addItem("14:00");
-        slotCreateBookingComboBox.addItem("14:30");
-        slotCreateBookingComboBox.addItem("15:00");
-        slotCreateBookingComboBox.addItem("15:30");
-        slotCreateBookingComboBox.addItem("16:00");
-        slotCreateBookingComboBox.addItem("16:30");
-
+        addItemsToComboBox(idUpdateBookingComboBox, idsList);
+        addItemsToComboBox(patientUpdateBookingComboBox, patientIdList);
+        addItemsToComboBox(doctorUpdateBookingComboBox, doctorsIdList);
+        addItemsToComboBox(dayUpdateBookingComboBox, daysList);
+        addItemsToComboBox(monthUpdateBookingComboBox, monthsList);
+        addItemsToComboBox(yearUpdateBookingComboBox, yearsList);
+        addItemsToComboBox(slotUpdateBookingComboBox, slotsList);
 
         // Create Booking event
         createBookingButton.addActionListener(new ActionListener() {
@@ -200,10 +152,10 @@ public class MainGui extends JFrame {
                     // Reset fields
                     patientCreateBookingComboBox.setSelectedItem("Select from list...");
                     doctorCreateBookingComboBox.setSelectedItem("Select from list...");
-                    dayCreateBookingComboBox.setSelectedItem("Select from list...");
-                    monthCreateBookingComboBox.setSelectedItem("Select from list...");
-                    yearCreateBookingComboBox.setSelectedItem("Select from list...");
-                    slotCreateBookingComboBox.setSelectedItem("Select from list...");
+                    dayCreateBookingComboBox.setSelectedItem("01");
+                    monthCreateBookingComboBox.setSelectedItem("JAN");
+                    yearCreateBookingComboBox.setSelectedItem("2023");
+                    slotCreateBookingComboBox.setSelectedItem("8:00");
                 } catch(InterruptedException ex) {
                     // Update Output text
                     updateOutputPane(createBookingOutputPane, "Ups! Something went wrong... 🤯");
@@ -222,19 +174,65 @@ public class MainGui extends JFrame {
                 updateOutputPane(updateBookingOutputPane, "Getting appointment data...");
                 try {
                     // Call Booking get() method
-                    Appointment appointment = bookingService.get(id);
-                    Thread.sleep(2000);
+//                    Appointment appointment = bookingService.get(id);
+                    Appointment appointment = new Appointment(1, 5, 1, "08-AUG-2023 @ 13:30");
+                    Thread.sleep(2000L);
                     // Populate fields
-//                    patientUpdateBookingComboBox.setSelectedItem(appointment.getPatientId());
-//                    doctorUpdateBookingComboBox.setSelectedItem(appointment.getDoctorId());
-                    // TODO use substring to get the day, month, year and slot data from dateTime property
-                    // Reset fields
-                    idUpdateBookingComboBox.setSelectedItem("Select from list...");
+                    patientUpdateBookingComboBox.setSelectedItem(String.valueOf(appointment.getPatientId()));
+                    doctorUpdateBookingComboBox.setSelectedItem(String.valueOf(appointment.getDoctorId()));
+                    dayUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(0, 2));
+                    monthUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(3, 6));
+                    yearUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(7, 11));
+                    slotUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(14, 19));
                 } catch(InterruptedException ex) {
                     // Update Output text
                     updateOutputPane(createBookingOutputPane, "Ups! Something went wrong... 🤯");
                     ex.printStackTrace();
                 }
+            }
+        });
+
+        // Update Appointment event
+        updateBookingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get data from fields
+                int id = Integer.parseInt(Objects.requireNonNull(idUpdateBookingComboBox.getSelectedItem()).toString());
+                String patientId = Objects.requireNonNull(patientUpdateBookingComboBox.getSelectedItem()).toString();
+                String doctorId = Objects.requireNonNull(doctorUpdateBookingComboBox.getSelectedItem()).toString();
+                String dateTime = dayUpdateBookingComboBox.getSelectedItem().toString() + "-" +
+                        monthUpdateBookingComboBox.getSelectedItem().toString() + "-" +
+                        yearUpdateBookingComboBox.getSelectedItem().toString() + " @ " +
+                        slotUpdateBookingComboBox.getSelectedItem().toString();
+                // Update Output text
+                updateOutputPane(updateBookingOutputPane, "Updating appointment " + id + "...");
+                try {
+                    // Call Booking update() method
+                    bookingService.update(id, new String[]{patientId, doctorId, dateTime});
+                    Thread.sleep(2000L);
+                    // Reset fields
+                    idUpdateBookingComboBox.setSelectedItem("Select from list...");
+                    patientUpdateBookingComboBox.setSelectedItem("Select from list...");
+                    doctorUpdateBookingComboBox.setSelectedItem("Select from list...");
+                    dayUpdateBookingComboBox.setSelectedItem("01");
+                    monthUpdateBookingComboBox.setSelectedItem("JAN");
+                    yearUpdateBookingComboBox.setSelectedItem("2023");
+                    slotUpdateBookingComboBox.setSelectedItem("8:00");
+                    // Update Output text
+                    updateOutputPane(updateBookingOutputPane, "Appointment updated successfully! 🥳");
+                } catch(InterruptedException ex) {
+                    // Update Output text
+                    updateOutputPane(updateBookingOutputPane, "Ups! Something went wrong... 🤯");
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+        // Cancel Appointment event
+        cancelBookingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO
             }
         });
     }
@@ -333,6 +331,10 @@ public class MainGui extends JFrame {
                 }
             }
         });
+    }
+
+    private void addItemsToComboBox(JComboBox comboBox, String[] items) {
+        for (String item : items) comboBox.addItem(item);
     }
 
     private void updateOutputPane(JTextPane outputPane, String newText) {

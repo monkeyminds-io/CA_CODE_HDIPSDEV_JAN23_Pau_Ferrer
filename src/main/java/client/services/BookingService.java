@@ -8,8 +8,11 @@ public class BookingService {
     }
 
     public Appointment get(int id) {
-        Appointment appointment = new Appointment();
         // TODO
-        return appointment;
+        return new Appointment();
+    }
+
+    public void update(int id, String[] params) {
+        // TODO
     }
 }

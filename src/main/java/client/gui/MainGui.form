@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="client.gui.MainGui">
   <grid id="27dc6" binding="mainPane" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="754" height="647"/>
+      <xy x="20" y="20" width="754" height="674"/>
     </constraints>
     <properties>
       <background color="-3355444"/>
@@ -1294,7 +1294,7 @@
                             </constraints>
                             <properties>
                               <font size="16" style="1"/>
-                              <text value="SUBMIT"/>
+                              <text value="CANCEL APPOINTMENT"/>
                             </properties>
                           </component>
                           <vspacer id="faba9">

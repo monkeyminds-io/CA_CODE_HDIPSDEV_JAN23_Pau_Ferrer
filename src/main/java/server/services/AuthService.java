@@ -1,4 +1,4 @@
 package server.services;
 
-public class AuthServer {
+public class AuthService {
 }
