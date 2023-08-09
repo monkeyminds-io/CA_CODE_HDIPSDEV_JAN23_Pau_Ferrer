@@ -20,6 +20,11 @@ public final class BookingServiceImpl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bookingService_CreateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bookingService_GetRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bookingService_GetRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bookingService_UpdateRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -55,23 +60,26 @@ public final class BookingServiceImpl {
     java.lang.String[] descriptorData = {
       "\n\rbooking.proto\022\016bookingService\"F\n\rCreat" +
       "eRequest\022\021\n\tpatientId\030\001 \001(\t\022\020\n\010doctorId\030" +
-      "\002 \001(\t\022\020\n\010dateTime\030\003 \001(\t\"R\n\rUpdateRequest" +
-      "\022\n\n\002id\030\001 \001(\t\022\021\n\tpatientId\030\002 \001(\t\022\020\n\010docto" +
-      "rId\030\003 \001(\t\022\020\n\010dateTime\030\004 \001(\t\"\033\n\rCancelReq" +
-      "uest\022\n\n\002id\030\001 \001(\t\"$\n\020ShiftListRequest\022\020\n\010" +
-      "doctorId\030\001 \001(\t\"P\n\013Appointment\022\n\n\002id\030\001 \001(" +
-      "\t\022\021\n\tpatientId\030\002 \001(\t\022\020\n\010doctorId\030\003 \001(\t\022\020" +
-      "\n\010dateTime\030\004 \001(\t\"%\n\rErrorResponse\022\024\n\014err" +
-      "orMessage\030\001 \001(\t2\263\002\n\007Booking\022F\n\006Create\022\035." +
-      "bookingService.CreateRequest\032\033.bookingSe" +
-      "rvice.Appointment\"\000\022F\n\006Update\022\035.bookingS" +
-      "ervice.UpdateRequest\032\033.bookingService.Ap" +
-      "pointment\"\000\022F\n\006Cancel\022\035.bookingService.C" +
-      "ancelRequest\032\033.bookingService.Appointmen" +
-      "t\"\000\022P\n\tShiftList\022 .bookingService.ShiftL" +
-      "istRequest\032\033.bookingService.Appointment\"" +
-      "\000(\0010\001B6\n\036server.services.bookingServiceB" +
-      "\022BookingServiceImplP\001b\006proto3"
+      "\002 \001(\t\022\020\n\010dateTime\030\003 \001(\t\"\030\n\nGetRequest\022\n\n" +
+      "\002id\030\001 \001(\t\"R\n\rUpdateRequest\022\n\n\002id\030\001 \001(\t\022\021" +
+      "\n\tpatientId\030\002 \001(\t\022\020\n\010doctorId\030\003 \001(\t\022\020\n\010d" +
+      "ateTime\030\004 \001(\t\"\033\n\rCancelRequest\022\n\n\002id\030\001 \001" +
+      "(\t\"$\n\020ShiftListRequest\022\020\n\010doctorId\030\001 \001(\t" +
+      "\"P\n\013Appointment\022\n\n\002id\030\001 \001(\t\022\021\n\tpatientId" +
+      "\030\002 \001(\t\022\020\n\010doctorId\030\003 \001(\t\022\020\n\010dateTime\030\004 \001" +
+      "(\t\"%\n\rErrorResponse\022\024\n\014errorMessage\030\001 \001(" +
+      "\t2\365\002\n\007Booking\022F\n\006Create\022\035.bookingService" +
+      ".CreateRequest\032\033.bookingService.Appointm" +
+      "ent\"\000\022@\n\003Get\022\032.bookingService.GetRequest" +
+      "\032\033.bookingService.Appointment\"\000\022F\n\006Updat" +
+      "e\022\035.bookingService.UpdateRequest\032\033.booki" +
+      "ngService.Appointment\"\000\022F\n\006Cancel\022\035.book" +
+      "ingService.CancelRequest\032\033.bookingServic" +
+      "e.Appointment\"\000\022P\n\tShiftList\022 .bookingSe" +
+      "rvice.ShiftListRequest\032\033.bookingService." +
+      "Appointment\"\000(\0010\001B6\n\036server.services.boo" +
+      "kingServiceB\022BookingServiceImplP\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -91,32 +99,38 @@ public final class BookingServiceImpl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingService_CreateRequest_descriptor,
         new java.lang.String[] { "PatientId", "DoctorId", "DateTime", });
-    internal_static_bookingService_UpdateRequest_descriptor =
+    internal_static_bookingService_GetRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_bookingService_GetRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bookingService_GetRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_bookingService_UpdateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_bookingService_UpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingService_UpdateRequest_descriptor,
         new java.lang.String[] { "Id", "PatientId", "DoctorId", "DateTime", });
     internal_static_bookingService_CancelRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_bookingService_CancelRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingService_CancelRequest_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_bookingService_ShiftListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_bookingService_ShiftListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingService_ShiftListRequest_descriptor,
         new java.lang.String[] { "DoctorId", });
     internal_static_bookingService_Appointment_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_bookingService_Appointment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingService_Appointment_descriptor,
         new java.lang.String[] { "Id", "PatientId", "DoctorId", "DateTime", });
     internal_static_bookingService_ErrorResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_bookingService_ErrorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bookingService_ErrorResponse_descriptor,

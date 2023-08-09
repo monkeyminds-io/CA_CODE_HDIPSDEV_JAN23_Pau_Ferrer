@@ -68,6 +68,43 @@ public final class BookingGrpc {
      return getCreateMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<server.services.bookingService.GetRequest,
+      server.services.bookingService.Appointment> METHOD_GET = getGetMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<server.services.bookingService.GetRequest,
+      server.services.bookingService.Appointment> getGetMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<server.services.bookingService.GetRequest,
+      server.services.bookingService.Appointment> getGetMethod() {
+    return getGetMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<server.services.bookingService.GetRequest,
+      server.services.bookingService.Appointment> getGetMethodHelper() {
+    io.grpc.MethodDescriptor<server.services.bookingService.GetRequest, server.services.bookingService.Appointment> getGetMethod;
+    if ((getGetMethod = BookingGrpc.getGetMethod) == null) {
+      synchronized (BookingGrpc.class) {
+        if ((getGetMethod = BookingGrpc.getGetMethod) == null) {
+          BookingGrpc.getGetMethod = getGetMethod = 
+              io.grpc.MethodDescriptor.<server.services.bookingService.GetRequest, server.services.bookingService.Appointment>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "bookingService.Booking", "Get"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  server.services.bookingService.GetRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  server.services.bookingService.Appointment.getDefaultInstance()))
+                  .setSchemaDescriptor(new BookingMethodDescriptorSupplier("Get"))
+                  .build();
+          }
+        }
+     }
+     return getGetMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getUpdateMethod()} instead. 
   public static final io.grpc.MethodDescriptor<server.services.bookingService.UpdateRequest,
       server.services.bookingService.Appointment> METHOD_UPDATE = getUpdateMethodHelper();
@@ -221,6 +258,13 @@ public final class BookingGrpc {
 
     /**
      */
+    public void get(server.services.bookingService.GetRequest request,
+        io.grpc.stub.StreamObserver<server.services.bookingService.Appointment> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
     public void update(server.services.bookingService.UpdateRequest request,
         io.grpc.stub.StreamObserver<server.services.bookingService.Appointment> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdateMethodHelper(), responseObserver);
@@ -249,6 +293,13 @@ public final class BookingGrpc {
                 server.services.bookingService.CreateRequest,
                 server.services.bookingService.Appointment>(
                   this, METHODID_CREATE)))
+          .addMethod(
+            getGetMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                server.services.bookingService.GetRequest,
+                server.services.bookingService.Appointment>(
+                  this, METHODID_GET)))
           .addMethod(
             getUpdateMethodHelper(),
             asyncUnaryCall(
@@ -304,6 +355,14 @@ public final class BookingGrpc {
         io.grpc.stub.StreamObserver<server.services.bookingService.Appointment> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCreateMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void get(server.services.bookingService.GetRequest request,
+        io.grpc.stub.StreamObserver<server.services.bookingService.Appointment> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetMethodHelper(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -364,6 +423,13 @@ public final class BookingGrpc {
 
     /**
      */
+    public server.services.bookingService.Appointment get(server.services.bookingService.GetRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public server.services.bookingService.Appointment update(server.services.bookingService.UpdateRequest request) {
       return blockingUnaryCall(
           getChannel(), getUpdateMethodHelper(), getCallOptions(), request);
@@ -411,6 +477,14 @@ public final class BookingGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<server.services.bookingService.Appointment> get(
+        server.services.bookingService.GetRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<server.services.bookingService.Appointment> update(
         server.services.bookingService.UpdateRequest request) {
       return futureUnaryCall(
@@ -427,9 +501,10 @@ public final class BookingGrpc {
   }
 
   private static final int METHODID_CREATE = 0;
-  private static final int METHODID_UPDATE = 1;
-  private static final int METHODID_CANCEL = 2;
-  private static final int METHODID_SHIFT_LIST = 3;
+  private static final int METHODID_GET = 1;
+  private static final int METHODID_UPDATE = 2;
+  private static final int METHODID_CANCEL = 3;
+  private static final int METHODID_SHIFT_LIST = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -450,6 +525,10 @@ public final class BookingGrpc {
       switch (methodId) {
         case METHODID_CREATE:
           serviceImpl.create((server.services.bookingService.CreateRequest) request,
+              (io.grpc.stub.StreamObserver<server.services.bookingService.Appointment>) responseObserver);
+          break;
+        case METHODID_GET:
+          serviceImpl.get((server.services.bookingService.GetRequest) request,
               (io.grpc.stub.StreamObserver<server.services.bookingService.Appointment>) responseObserver);
           break;
         case METHODID_UPDATE:
@@ -525,6 +604,7 @@ public final class BookingGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new BookingFileDescriptorSupplier())
               .addMethod(getCreateMethodHelper())
+              .addMethod(getGetMethodHelper())
               .addMethod(getUpdateMethodHelper())
               .addMethod(getCancelMethodHelper())
               .addMethod(getShiftListMethodHelper())

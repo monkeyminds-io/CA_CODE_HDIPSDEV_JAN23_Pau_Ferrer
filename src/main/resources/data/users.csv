@@ -9,3 +9,6 @@ id,first_name,last_name,email,password,role
 8,Jilly,Pittel,jpittel6@gmail.com,1234Asd$,patient
 9,Etienne,Gotling,egotling7@gmail.com,1234Asd$,patient
 10,Edmon,Brychan,ebrychan8@gmail.com,1234Asd$,patient
+11,Pau,Ferrer,pau.ferrer@gmail.com,123Qwe$,Patient
+12,Grace,MacManus,g.macmanus@gmail.com,123Qwe$,Doctor
+13,Ami,Ferrer,woof@gmail.com,123Qwe$,Nurse

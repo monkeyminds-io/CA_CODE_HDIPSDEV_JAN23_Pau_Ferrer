@@ -18,6 +18,10 @@ message CreateRequest {
   string dateTime = 3;
 }
 
+message GetRequest {
+  string id = 1;
+}
+
 message UpdateRequest {
   string id = 1;
   string patientId = 2;
@@ -48,6 +52,7 @@ message ErrorResponse {
 service Booking {
   // These are the method declarations
   rpc Create (CreateRequest) returns (Appointment) {}
+  rpc Get (GetRequest) returns (Appointment) {}
   rpc Update (UpdateRequest) returns (Appointment) {}
   rpc Cancel (CancelRequest) returns (Appointment) {}
   rpc ShiftList (stream ShiftListRequest) returns (stream Appointment) {}

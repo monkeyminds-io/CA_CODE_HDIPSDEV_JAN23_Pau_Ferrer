@@ -96,7 +96,11 @@ public class MainGui extends JFrame {
         authLogoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int option = JOptionPane.showConfirmDialog(MainGui.super.rootPane, "Are you sure you want to leave?", "Logging out", JOptionPane.YES_NO_OPTION);
+                int option = JOptionPane.showConfirmDialog(
+                        MainGui.super.rootPane,
+                        "Are you sure you want to leave?",
+                        "Logging out",
+                        JOptionPane.YES_NO_OPTION);
                 if(option == 0) MainGui.super.dispose();
             }
         });
@@ -122,29 +126,38 @@ public class MainGui extends JFrame {
                 String email = emailField.getText();
                 String password = new String(passwordField.getPassword());
                 String role = roleComboBox.getSelectedItem().toString();
-                // Update Output text
-                updateOutputPane(registerOutputPane, "Registering user with:" +
-                        "\n  First Name: " + firstName +
-                        "\n  Last Name: " + lastName +
-                        "\n  Email: " + email +
-                        "\n  Role: " + role +
-                        "\nPlease wait...");
-                try {
-                    // Call Auth register() method
-                    authService.register(firstName, lastName, email, password, role);
-                    Thread.sleep(2000);
+                // Prevent empties
+                if(firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || role.isEmpty()) {
+                    JOptionPane.showMessageDialog(
+                            MainGui.super.rootPane,
+                            "Sorry, all fields are required.\nPlease, fill form with all the data.",
+                            "Empty form",
+                            JOptionPane.WARNING_MESSAGE);
+                } else {
                     // Update Output text
-                    updateOutputPane(registerOutputPane, "User registered successfully! 🥳");
-                    // Reset fields
-                    firstNameField.setText("");
-                    lastNameField.setText("");
-                    emailField.setText("");
-                    passwordField.setText("");
-                    roleComboBox.setSelectedItem("Select from list...");
-                } catch(InterruptedException ex) {
-                    // Update Output text
-                    updateOutputPane(registerOutputPane, "Ups! Something went wrong... 🤯");
-                    ex.printStackTrace();
+                    updateOutputPane(registerOutputPane, "Registering user with:" +
+                            "\n  First Name: " + firstName +
+                            "\n  Last Name: " + lastName +
+                            "\n  Email: " + email +
+                            "\n  Role: " + role +
+                            "\nPlease wait...");
+                    try {
+                        // Call Auth register() method
+                        authService.register(firstName, lastName, email, password, role);
+                        Thread.sleep(2000);
+                        // Update Output text
+                        updateOutputPane(registerOutputPane, "User registered successfully! 🥳");
+                        // Reset fields
+                        firstNameField.setText("");
+                        lastNameField.setText("");
+                        emailField.setText("");
+                        passwordField.setText("");
+                        roleComboBox.setSelectedItem("Select from list...");
+                    } catch (InterruptedException ex) {
+                        // Update Output text
+                        updateOutputPane(registerOutputPane, "Ups! Something went wrong... 🤯");
+                        ex.printStackTrace();
+                    }
                 }
             }
         });
@@ -223,29 +236,38 @@ public class MainGui extends JFrame {
                         monthCreateBookingComboBox.getSelectedItem().toString() + "-" +
                         yearCreateBookingComboBox.getSelectedItem().toString() + " @ " +
                         slotCreateBookingComboBox.getSelectedItem().toString();
-                // Update Output text
-                updateOutputPane(createBookingOutputPane, "Creating appointment with:" +
-                        "\n  Patient id: " + patientId +
-                        "\n  Doctor id: " + doctorId +
-                        "\n  Slot: " + dateTime +
-                        "\nPlease wait...");
-                try {
-                    // Call Booking create() method
-                    bookingService.create(patientId, doctorId, dateTime);
-                    Thread.sleep(2000);
+                // Prevent empties
+                if(patientCreateBookingComboBox.getSelectedItem().toString().isEmpty() || doctorCreateBookingComboBox.getSelectedItem().toString().isEmpty()) {
+                    JOptionPane.showMessageDialog(
+                            MainGui.super.rootPane,
+                            "Sorry, all fields are required.\nPlease, fill form with all the data.",
+                            "Empty form",
+                            JOptionPane.WARNING_MESSAGE);
+                } else {
                     // Update Output text
-                    updateOutputPane(createBookingOutputPane, "Appointment created successfully! 🥳");
-                    // Reset fields
-                    patientCreateBookingComboBox.setSelectedItem("Select from list...");
-                    doctorCreateBookingComboBox.setSelectedItem("Select from list...");
-                    dayCreateBookingComboBox.setSelectedItem("01");
-                    monthCreateBookingComboBox.setSelectedItem("JAN");
-                    yearCreateBookingComboBox.setSelectedItem("2023");
-                    slotCreateBookingComboBox.setSelectedItem("8:00");
-                } catch(InterruptedException ex) {
-                    // Update Output text
-                    updateOutputPane(createBookingOutputPane, "Ups! Something went wrong... 🤯");
-                    ex.printStackTrace();
+                    updateOutputPane(createBookingOutputPane, "Creating appointment with:" +
+                            "\n  Patient id: " + patientId +
+                            "\n  Doctor id: " + doctorId +
+                            "\n  Slot: " + dateTime +
+                            "\nPlease wait...");
+                    try {
+                        // Call Booking create() method
+                        bookingService.create(patientId, doctorId, dateTime);
+                        Thread.sleep(2000);
+                        // Update Output text
+                        updateOutputPane(createBookingOutputPane, "Appointment created successfully! 🥳");
+                        // Reset fields
+                        patientCreateBookingComboBox.setSelectedItem("Select from list...");
+                        doctorCreateBookingComboBox.setSelectedItem("Select from list...");
+                        dayCreateBookingComboBox.setSelectedItem("01");
+                        monthCreateBookingComboBox.setSelectedItem("JAN");
+                        yearCreateBookingComboBox.setSelectedItem("2023");
+                        slotCreateBookingComboBox.setSelectedItem("8:00");
+                    } catch (InterruptedException ex) {
+                        // Update Output text
+                        updateOutputPane(createBookingOutputPane, "Ups! Something went wrong... 🤯");
+                        ex.printStackTrace();
+                    }
                 }
             }
         });
@@ -260,8 +282,7 @@ public class MainGui extends JFrame {
                 updateOutputPane(updateBookingOutputPane, "Getting appointment data...");
                 try {
                     // Call Booking get() method
-//                    Appointment appointment = bookingService.get(id);
-                    Appointment appointment = new Appointment(1, 5, 1, "08-AUG-2023 @ 13:30");
+                    Appointment appointment = bookingService.get(id);
                     Thread.sleep(2000L);
                     // Populate fields
                     patientUpdateBookingComboBox.setSelectedItem(String.valueOf(appointment.getPatientId()));
@@ -324,8 +345,7 @@ public class MainGui extends JFrame {
                 updateOutputPane(cancelBookingOutputPane, "Getting appointment data...");
                 try {
                     // Call Booking get() method
-//                    Appointment appointment = bookingService.get(id);
-                    Appointment appointment = new Appointment(1, 5, 1, "08-AUG-2023 @ 13:30");
+                    Appointment appointment = bookingService.get(id);
                     Thread.sleep(2000L);
                     // Populate fields
                     patientCancelBookingTextField.setText(String.valueOf(appointment.getPatientId()));

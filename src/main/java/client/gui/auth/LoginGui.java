@@ -1,14 +1,15 @@
 package client.gui.auth;
 
+import client.controllers.User;
 import client.gui.MainGui;
 import client.services.AuthService;
+import com.google.protobuf.ServiceException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
 
 public class LoginGui extends JFrame {
 
@@ -28,31 +29,62 @@ public class LoginGui extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginButtonClicked();
+                try {
+                    loginButtonClicked();
+                } catch (ServiceException ex) {
+                    JOptionPane.showMessageDialog(LoginGui.super.rootPane,
+                            "The credentials are not correct.\nPlease, try again with correct credentials.",
+                            "Wrong credentials",
+                            JOptionPane.WARNING_MESSAGE);
+                    throw new RuntimeException(ex);
+                }
             }
         });
         loginButton.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == 10) loginButtonClicked();
+                if(e.getKeyCode() == 10) {
+                    try {
+                        loginButtonClicked();
+                    } catch (ServiceException ex) {
+                        JOptionPane.showMessageDialog(LoginGui.super.rootPane,
+                                "The credentials are not correct.\nPlease, try again with correct credentials.",
+                                "Wrong credentials",
+                                JOptionPane.WARNING_MESSAGE);
+                        throw new RuntimeException(ex);
+                    }
+                }
             }
         });
     }
 
-    private void loginButtonClicked() {
+    private void loginButtonClicked() throws ServiceException {
         // Get data from fields
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());
-        // Call Auth login() method
-        AuthService authService = new AuthService();
-        String response = authService.login(email, password);
-        if(response == "true") {
-            // Close login window
-            this.dispose();
-            // Open dashboard window
-            new MainGui();
+        // Check empty fields
+        if(email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Sorry, all fields are required.\nPlease, fill with your credentials.",
+                    "Empty credentials",
+                    JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, response, "Wrong credentials", JOptionPane.WARNING_MESSAGE);
+            // Call Auth login() method
+            AuthService authService = new AuthService();
+            User user = authService.login(email, password);
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                // Close login window
+                this.dispose();
+                // Open dashboard window
+                new MainGui();
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "The credentials are not correct.\nPlease, try again with correct credentials.",
+                        "Wrong credentials",
+                        JOptionPane.WARNING_MESSAGE);
+            }
         }
     }
 }
