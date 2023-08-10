@@ -186,7 +186,7 @@ public class MainGui extends JFrame {
                 "31"));
         ArrayList<String> monthsList = new ArrayList<>(Arrays.asList("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"));
         ArrayList<String> yearsList = new ArrayList<>(Arrays.asList("2023", "2024"));
-        ArrayList<String> slotsList = new ArrayList<>(Arrays.asList("8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
+        ArrayList<String> slotsList = new ArrayList<>(Arrays.asList("08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
                 "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"));
         ArrayList<String> doctorsNameList = new ArrayList<>();
         for (int i = 0; i < users.size(); i++) {
@@ -290,7 +290,7 @@ public class MainGui extends JFrame {
                     dayUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(0, 2));
                     monthUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(3, 6));
                     yearUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(7, 11));
-                    slotUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(14, 19));
+                    slotUpdateBookingComboBox.setSelectedItem(appointment.getDateTime().substring(14));
                 } catch(InterruptedException ex) {
                     // Update Output text
                     updateOutputPane(createBookingOutputPane, "Ups! Something went wrong... 🤯");
@@ -315,7 +315,7 @@ public class MainGui extends JFrame {
                 updateOutputPane(updateBookingOutputPane, "Updating appointment " + id + "...");
                 try {
                     // Call Booking update() method
-                    bookingService.update(id, new String[]{patientId, doctorId, dateTime});
+                    bookingService.update(id, patientId, doctorId, dateTime);
                     Thread.sleep(2000L);
                     // Reset fields
                     idUpdateBookingComboBox.setSelectedItem("Select from list...");
@@ -383,7 +383,7 @@ public class MainGui extends JFrame {
                     yearCancelBookingTextField.setText("");
                     slotCancelBookingTextField.setText("");
                     // Update Output text
-                    updateOutputPane(updateBookingOutputPane, "Appointment updated successfully! 🥳");
+                    updateOutputPane(cancelBookingOutputPane, "Appointment cancelled successfully! 🥳");
                 } catch(InterruptedException ex) {
                     // Update Output text
                     updateOutputPane(cancelBookingOutputPane, "Ups! Something went wrong... 🤯");

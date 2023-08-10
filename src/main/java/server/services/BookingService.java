@@ -8,7 +8,6 @@ import io.grpc.stub.StreamObserver;
 import server.services.bookingService.*;
 
 import java.io.*;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class BookingService extends BookingGrpc.BookingImplBase {
@@ -18,6 +17,7 @@ public class BookingService extends BookingGrpc.BookingImplBase {
     final static String SERVICE_TYPE = "_booking._tcp.local.";
     final static String SERVICE_NAME = "bookingService";
     final static String SERVICE_DESCRIPTION = "Booking service to manage appointments.";
+    final String HEADERS = "id,patient_id,doctor_id,date_time";
 
     private String appointmentsFile = new File("src/main/resources/data/appointments.csv").getAbsolutePath();
     private ArrayList<String[]> appointments;
@@ -70,18 +70,38 @@ public class BookingService extends BookingGrpc.BookingImplBase {
         return data;
     }
 
+    private boolean updateCsvFileData(String headers, ArrayList<String[]> data, String filePath) {
+        // Delete existing file
+        boolean hasDeleted = new File(filePath).delete();
+        // If deleted ok rewrite file with new data
+        if(hasDeleted) {
+            try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath))) {
+                bufferedWriter.append(headers);
+                for(int i = 0; i < data.size(); i++) {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    for (String s : data.get(i)) stringBuilder.append(s).append(",");
+                    String record = stringBuilder.deleteCharAt(stringBuilder.length() - 1).toString();
+                    bufferedWriter.append("\n").append(record);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.err.println("File not deleted correctly...");
+        }
+        return hasDeleted;
+    }
+
     // Overrides
     @Override
     public void create(CreateRequest request, StreamObserver<Appointment> responseObserver) {
         // Create the new user String array object
-        String[] newAppointment = new String[7];
+        String[] newAppointment = new String[4];
         newAppointment[0] = String.valueOf(this.lastIndex + 1);
         newAppointment[1] = request.getPatientId();
         newAppointment[2] = request.getDoctorId();
         newAppointment[3] = request.getDateTime();
-        newAppointment[4] = new Timestamp(System.currentTimeMillis()).toString();
-        newAppointment[5] = newAppointment[4];
-        newAppointment[6] = "";
         // Add user record to ArrayList
         this.appointments.add(newAppointment);
         this.lastIndex++;
@@ -108,7 +128,7 @@ public class BookingService extends BookingGrpc.BookingImplBase {
 
     @Override
     public void get(GetRequest request, StreamObserver<Appointment> responseObserver) {
-        String[] target = new String[7];
+        String[] target = new String[4];
         int count = 0;
         for(String[] current : this.appointments) {
             if(current[0].equals(request.getId())) target = current;
@@ -131,16 +151,83 @@ public class BookingService extends BookingGrpc.BookingImplBase {
 
     @Override
     public void update(UpdateRequest request, StreamObserver<Appointment> responseObserver) {
-        super.update(request, responseObserver);
+        String[] updatedAppointment = new String[4];
+        updatedAppointment[0] = request.getId();
+        updatedAppointment[1] = request.getPatientId();
+        updatedAppointment[2] = request.getDoctorId();
+        updatedAppointment[3] = request.getDateTime();
+        this.appointments.set(Integer.parseInt(updatedAppointment[0]) - 1, updatedAppointment);
+        boolean hasUpdated = this.updateCsvFileData(this.HEADERS, this.appointments, this.appointmentsFile);
+        try {
+            if(!hasUpdated) throw new Exception();
+            Appointment appointment = Appointment.newBuilder()
+                    .setId(updatedAppointment[0])
+                    .setPatientId(updatedAppointment[1])
+                    .setDoctorId(updatedAppointment[2])
+                    .setDateTime(updatedAppointment[3])
+                    .build();
+            responseObserver.onNext(appointment);
+            responseObserver.onCompleted();
+        } catch(Exception ex) {
+            responseObserver.onError(ex);
+        }
     }
 
     @Override
     public void cancel(CancelRequest request, StreamObserver<Appointment> responseObserver) {
-        super.cancel(request, responseObserver);
+        String[] deletedAppointment = this.appointments.remove(Integer.parseInt(request.getId()) - 1);
+        boolean hasUpdated = this.updateCsvFileData(this.HEADERS, this.appointments, this.appointmentsFile);
+        try {
+            if(!hasUpdated) throw new Exception();
+            Appointment appointment = Appointment.newBuilder()
+                    .setId(deletedAppointment[0])
+                    .setPatientId(deletedAppointment[1])
+                    .setDoctorId(deletedAppointment[2])
+                    .setDateTime(deletedAppointment[3])
+                    .build();
+            responseObserver.onNext(appointment);
+            responseObserver.onCompleted();
+        } catch(Exception ex) {
+            responseObserver.onError(ex);
+        }
     }
 
     @Override
     public StreamObserver<ShiftListRequest> shiftList(StreamObserver<Appointment> responseObserver) {
-        return super.shiftList(responseObserver);
+        return new StreamObserver<ShiftListRequest>() {
+
+            ArrayList<String> doctors = new ArrayList<>();
+            ArrayList<String[]> shiftAppointments = new ArrayList<>();
+            @Override
+            public void onNext(ShiftListRequest request) {
+                doctors.add(request.getDoctorId());
+                for (String doctor : doctors) {
+                    for(String[] appointment : appointments) {
+                        if(appointment[2].equalsIgnoreCase(doctor)) {
+                            shiftAppointments.add(appointment);
+                        }
+                    }
+                    for(String[] shiftAppointment : shiftAppointments) {
+                        Appointment appointment = Appointment.newBuilder()
+                                .setId(shiftAppointment[0])
+                                .setPatientId(shiftAppointment[1])
+                                .setDoctorId(shiftAppointment[2])
+                                .setDateTime(shiftAppointment[3])
+                                .build();
+                        responseObserver.onNext(appointment);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onCompleted() {
+                responseObserver.onCompleted();
+            }
+        };
     }
 }
