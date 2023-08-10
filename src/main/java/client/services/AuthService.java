@@ -16,46 +16,41 @@ public class AuthService {
     // Properties
     final String SERVICE_TYPE = "_auth._tcp.local.";
     final String HOST = "localhost";
-    private int port = 50052;
+//    private int port = 50052;
+    private int port;
     private ManagedChannel channel;
     private AuthGrpc.AuthBlockingStub blockingStub;
 
     // Constructors
     public AuthService() {
         // Discovering service
-//        ServiceDiscovery serviceDiscovery = new ServiceDiscovery();
-//        ServiceInfo serviceInfo = serviceDiscovery.discover(this.SERVICE_TYPE);
-//        this.port = serviceInfo.getPort(); // Comment to use static port
+        ServiceDiscovery serviceDiscovery = new ServiceDiscovery();
+        ServiceInfo serviceInfo = serviceDiscovery.discover(this.SERVICE_TYPE);
+        this.port = serviceInfo.getPort(); // Comment to use static port
         // Connecting to service
         this.setChannel(ManagedChannelBuilder.forAddress(this.HOST, this.port)
                 .usePlaintext()
                 .build());
         // Creating the stub
         this.setBlockingStub(AuthGrpc.newBlockingStub(this.getChannel()));
-        System.out.println("Listening to Auth Service in port " + this.port);
     }
 
     // Setters & Getters
     public int getPort() {
         return port;
     }
-
     public void setPort(int port) {
         this.port = port;
     }
-
     public ManagedChannel getChannel() {
         return channel;
     }
-
     public void setChannel(ManagedChannel channel) {
         this.channel = channel;
     }
-
     public AuthGrpc.AuthBlockingStub getBlockingStub() {
         return blockingStub;
     }
-
     public void setBlockingStub(AuthGrpc.AuthBlockingStub blockingStub) {
         this.blockingStub = blockingStub;
     }

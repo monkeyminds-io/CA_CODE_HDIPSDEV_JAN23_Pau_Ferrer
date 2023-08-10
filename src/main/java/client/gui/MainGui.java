@@ -9,10 +9,12 @@ import client.services.PrescriptionsService;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Objects;
 
 public class MainGui extends JFrame {
@@ -86,7 +88,7 @@ public class MainGui extends JFrame {
         setTitle("Health First | Dashboard");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1024, 720);
-        setContentPane(this.mainPane);
+        setContentPane(mainPane);
         setLocationRelativeTo(null);
         setVisible(true);
         // Init service tabs
@@ -421,7 +423,6 @@ public class MainGui extends JFrame {
 
     private void initPrescriptionsTab(ArrayList<String[]> users) {
         // Local variables
-        ArrayList<String[]> drugs = new ArrayList<>();
         ArrayList<String> patientIdList = new ArrayList<>();
         patientIdList.add("Select from list...");
         for (int i = 0; i < users.size(); i++) {
@@ -451,22 +452,30 @@ public class MainGui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Capture data from fields
-                String[] drugRecord = new String[3];
-                drugRecord[0] = drugNameCreatePrescriptionField.getText();
-                drugRecord[1] = String.valueOf(dosesCreatePrescriptionSpinner.getValue());
-                drugRecord[2] = commentCreatePrescriptionTextArea.getText();
-                // Add data to Streaming array
-                drugs.add(drugRecord);
+                String drug = drugNameCreatePrescriptionField.getText();
+                String doses = String.valueOf(dosesCreatePrescriptionSpinner.getValue());
+                String comment = commentCreatePrescriptionTextArea.getText();
                 // Update Output text
-                updateOutputPane(createPrescriptionOutputPane,
-                        "Drug: " + drugRecord[0] +
-                        "\nDoses: " + drugRecord[1] +
-                        "\nComments: " + drugRecord[2] +
-                        "\nAdded to the drugs list.");
-                // Reset fields
-                drugNameCreatePrescriptionField.setText("");
-                dosesCreatePrescriptionSpinner.setValue(0);
-                commentCreatePrescriptionTextArea.setText("");
+                updateOutputPane(createPrescriptionOutputPane, "Adding drug to prescription...");
+                try {
+                    // Call Bookings getShiftAppointments() method
+                    prescriptionsService.addDrug(drug, doses, comment);
+                    Thread.sleep(2000L);
+                    // Update Output text
+                    updateOutputPane(createPrescriptionOutputPane,
+                            " Drug: " + drug +
+                                    "\n Doses: " + doses +
+                                    "\n Comments: " + comment +
+                                    "\nAdded to the prescription.");
+                    // Reset fields
+                    drugNameCreatePrescriptionField.setText("");
+                    dosesCreatePrescriptionSpinner.setValue(0);
+                    commentCreatePrescriptionTextArea.setText("");
+                } catch(InterruptedException ex) {
+                    // Update Output text
+                    updateOutputPane(cancelBookingOutputPane, "Ups! Something went wrong... 🤯");
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -480,9 +489,9 @@ public class MainGui extends JFrame {
                 int expiry = Integer.parseInt(Objects.requireNonNull(expiryCreatePrescriptionComboBox.getSelectedItem()).toString());
                 // Update Output text
                 updateOutputPane(createPrescriptionOutputPane, "Creating prescription." + "\nPlease, wait...");
-                // Call Prescriptions service create() method
                 try {
-                    prescriptionsService.create(patientId, doctorId, expiry, drugs);
+                    // Call Prescriptions service create() method
+                    prescriptionsService.create(patientId, doctorId, expiry);
                     Thread.sleep(2000);
                     // Update Output text
                     updateOutputPane(createPrescriptionOutputPane, "Prescription created successfully! 🥳");
@@ -521,6 +530,7 @@ public class MainGui extends JFrame {
         });
     }
 
+    // Handy methods
     private void addItemsToComboBox(JComboBox comboBox, ArrayList<String> items) {
         for (String item : items) comboBox.addItem(item);
     }

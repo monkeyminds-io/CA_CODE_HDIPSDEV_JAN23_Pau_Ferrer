@@ -1,1 +1,2 @@
-id,patient_id,doctor_id,expiry_date,created_at,updated_at
+id,patient_id,doctor_id,expiry_date
+1,11,12,180

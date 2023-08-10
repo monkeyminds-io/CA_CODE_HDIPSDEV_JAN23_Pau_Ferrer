@@ -54,18 +54,55 @@ public final class PrescriptionsGrpc {
               io.grpc.MethodDescriptor.<server.services.prescriptionsService.CreateRequest, server.services.prescriptionsService.Prescription>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "prescriptionsService.Prescriptions", "Create"))
+                  "prescriptionsService.Prescriptions", "create"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   server.services.prescriptionsService.CreateRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   server.services.prescriptionsService.Prescription.getDefaultInstance()))
-                  .setSchemaDescriptor(new PrescriptionsMethodDescriptorSupplier("Create"))
+                  .setSchemaDescriptor(new PrescriptionsMethodDescriptorSupplier("create"))
                   .build();
           }
         }
      }
      return getCreateMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getAddDrugMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<server.services.prescriptionsService.AddDrugRequest,
+      server.services.prescriptionsService.Drug> METHOD_ADD_DRUG = getAddDrugMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<server.services.prescriptionsService.AddDrugRequest,
+      server.services.prescriptionsService.Drug> getAddDrugMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<server.services.prescriptionsService.AddDrugRequest,
+      server.services.prescriptionsService.Drug> getAddDrugMethod() {
+    return getAddDrugMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<server.services.prescriptionsService.AddDrugRequest,
+      server.services.prescriptionsService.Drug> getAddDrugMethodHelper() {
+    io.grpc.MethodDescriptor<server.services.prescriptionsService.AddDrugRequest, server.services.prescriptionsService.Drug> getAddDrugMethod;
+    if ((getAddDrugMethod = PrescriptionsGrpc.getAddDrugMethod) == null) {
+      synchronized (PrescriptionsGrpc.class) {
+        if ((getAddDrugMethod = PrescriptionsGrpc.getAddDrugMethod) == null) {
+          PrescriptionsGrpc.getAddDrugMethod = getAddDrugMethod = 
+              io.grpc.MethodDescriptor.<server.services.prescriptionsService.AddDrugRequest, server.services.prescriptionsService.Drug>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "prescriptionsService.Prescriptions", "addDrug"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  server.services.prescriptionsService.AddDrugRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  server.services.prescriptionsService.Drug.getDefaultInstance()))
+                  .setSchemaDescriptor(new PrescriptionsMethodDescriptorSupplier("addDrug"))
+                  .build();
+          }
+        }
+     }
+     return getAddDrugMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getGetAllMethod()} instead. 
@@ -91,13 +128,13 @@ public final class PrescriptionsGrpc {
               io.grpc.MethodDescriptor.<server.services.prescriptionsService.Empty, server.services.prescriptionsService.Prescription>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "prescriptionsService.Prescriptions", "GetAll"))
+                  "prescriptionsService.Prescriptions", "getAll"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   server.services.prescriptionsService.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   server.services.prescriptionsService.Prescription.getDefaultInstance()))
-                  .setSchemaDescriptor(new PrescriptionsMethodDescriptorSupplier("GetAll"))
+                  .setSchemaDescriptor(new PrescriptionsMethodDescriptorSupplier("getAll"))
                   .build();
           }
         }
@@ -147,6 +184,13 @@ public final class PrescriptionsGrpc {
 
     /**
      */
+    public void addDrug(server.services.prescriptionsService.AddDrugRequest request,
+        io.grpc.stub.StreamObserver<server.services.prescriptionsService.Drug> responseObserver) {
+      asyncUnimplementedUnaryCall(getAddDrugMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
     public void getAll(server.services.prescriptionsService.Empty request,
         io.grpc.stub.StreamObserver<server.services.prescriptionsService.Prescription> responseObserver) {
       asyncUnimplementedUnaryCall(getGetAllMethodHelper(), responseObserver);
@@ -161,6 +205,13 @@ public final class PrescriptionsGrpc {
                 server.services.prescriptionsService.CreateRequest,
                 server.services.prescriptionsService.Prescription>(
                   this, METHODID_CREATE)))
+          .addMethod(
+            getAddDrugMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                server.services.prescriptionsService.AddDrugRequest,
+                server.services.prescriptionsService.Drug>(
+                  this, METHODID_ADD_DRUG)))
           .addMethod(
             getGetAllMethodHelper(),
             asyncServerStreamingCall(
@@ -206,6 +257,14 @@ public final class PrescriptionsGrpc {
 
     /**
      */
+    public void addDrug(server.services.prescriptionsService.AddDrugRequest request,
+        io.grpc.stub.StreamObserver<server.services.prescriptionsService.Drug> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getAddDrugMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getAll(server.services.prescriptionsService.Empty request,
         io.grpc.stub.StreamObserver<server.services.prescriptionsService.Prescription> responseObserver) {
       asyncServerStreamingCall(
@@ -242,6 +301,13 @@ public final class PrescriptionsGrpc {
     public server.services.prescriptionsService.Prescription create(server.services.prescriptionsService.CreateRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public server.services.prescriptionsService.Drug addDrug(server.services.prescriptionsService.AddDrugRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getAddDrugMethodHelper(), getCallOptions(), request);
     }
 
     /**
@@ -284,10 +350,19 @@ public final class PrescriptionsGrpc {
       return futureUnaryCall(
           getChannel().newCall(getCreateMethodHelper(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<server.services.prescriptionsService.Drug> addDrug(
+        server.services.prescriptionsService.AddDrugRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getAddDrugMethodHelper(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE = 0;
-  private static final int METHODID_GET_ALL = 1;
+  private static final int METHODID_ADD_DRUG = 1;
+  private static final int METHODID_GET_ALL = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -309,6 +384,10 @@ public final class PrescriptionsGrpc {
         case METHODID_CREATE:
           serviceImpl.create((server.services.prescriptionsService.CreateRequest) request,
               (io.grpc.stub.StreamObserver<server.services.prescriptionsService.Prescription>) responseObserver);
+          break;
+        case METHODID_ADD_DRUG:
+          serviceImpl.addDrug((server.services.prescriptionsService.AddDrugRequest) request,
+              (io.grpc.stub.StreamObserver<server.services.prescriptionsService.Drug>) responseObserver);
           break;
         case METHODID_GET_ALL:
           serviceImpl.getAll((server.services.prescriptionsService.Empty) request,
@@ -376,6 +455,7 @@ public final class PrescriptionsGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PrescriptionsFileDescriptorSupplier())
               .addMethod(getCreateMethodHelper())
+              .addMethod(getAddDrugMethodHelper())
               .addMethod(getGetAllMethodHelper())
               .build();
         }

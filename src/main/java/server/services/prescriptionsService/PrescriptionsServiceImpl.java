@@ -20,10 +20,20 @@ public final class PrescriptionsServiceImpl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_prescriptionsService_CreateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_prescriptionsService_AddDrugRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_prescriptionsService_AddDrugRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_prescriptionsService_Prescription_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_prescriptionsService_Prescription_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_prescriptionsService_Drug_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_prescriptionsService_Drug_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_prescriptionsService_ErrorResponse_descriptor;
   static final 
@@ -44,19 +54,25 @@ public final class PrescriptionsServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\023prescriptions.proto\022\024prescriptionsServ" +
-      "ice\"`\n\rCreateRequest\022\021\n\tpatientId\030\001 \001(\t\022" +
-      "\020\n\010doctorId\030\002 \001(\t\"*\n\005drugs\022\010\n\004drug\020\000\022\t\n\005" +
-      "doses\020\001\022\014\n\010comments\020\002\"n\n\014Prescription\022\n\n" +
-      "\002id\030\001 \001(\t\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName" +
-      "\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\020\n\010password\030\005 \001(\t\022" +
-      "\014\n\004role\030\006 \001(\t\"%\n\rErrorResponse\022\024\n\014errorM" +
-      "essage\030\001 \001(\t\"\007\n\005Empty2\263\001\n\rPrescriptions\022" +
-      "S\n\006Create\022#.prescriptionsService.CreateR" +
-      "equest\032\".prescriptionsService.Prescripti" +
-      "on\"\000\022M\n\006GetAll\022\033.prescriptionsService.Em" +
-      "pty\032\".prescriptionsService.Prescription\"" +
-      "\0000\001BB\n$server.services.prescriptionsServ" +
-      "iceB\030PrescriptionsServiceImplP\001b\006proto3"
+      "ice\"H\n\rCreateRequest\022\021\n\tpatientId\030\001 \001(\t\022" +
+      "\020\n\010doctorId\030\002 \001(\t\022\022\n\nexpiryDate\030\003 \001(\t\"W\n" +
+      "\016AddDrugRequest\022\027\n\017prescriptionsId\030\001 \001(\t" +
+      "\022\014\n\004drug\030\002 \001(\t\022\r\n\005doses\030\003 \001(\t\022\017\n\007comment" +
+      "\030\004 \001(\t\"S\n\014Prescription\022\n\n\002id\030\001 \001(\t\022\021\n\tpa" +
+      "tientId\030\002 \001(\t\022\020\n\010doctorId\030\003 \001(\t\022\022\n\nexpir" +
+      "yDate\030\004 \001(\t\"Y\n\004Drug\022\n\n\002id\030\001 \001(\t\022\027\n\017presc" +
+      "riptionsId\030\002 \001(\t\022\014\n\004drug\030\003 \001(\t\022\r\n\005doses\030" +
+      "\004 \001(\t\022\017\n\007comment\030\005 \001(\t\"%\n\rErrorResponse\022" +
+      "\024\n\014errorMessage\030\001 \001(\t\"\007\n\005Empty2\202\002\n\rPresc" +
+      "riptions\022S\n\006create\022#.prescriptionsServic" +
+      "e.CreateRequest\032\".prescriptionsService.P" +
+      "rescription\"\000\022M\n\007addDrug\022$.prescriptions" +
+      "Service.AddDrugRequest\032\032.prescriptionsSe" +
+      "rvice.Drug\"\000\022M\n\006getAll\022\033.prescriptionsSe" +
+      "rvice.Empty\032\".prescriptionsService.Presc" +
+      "ription\"\0000\001BB\n$server.services.prescript" +
+      "ionsServiceB\030PrescriptionsServiceImplP\001b" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -75,21 +91,33 @@ public final class PrescriptionsServiceImpl {
     internal_static_prescriptionsService_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prescriptionsService_CreateRequest_descriptor,
-        new java.lang.String[] { "PatientId", "DoctorId", });
-    internal_static_prescriptionsService_Prescription_descriptor =
+        new java.lang.String[] { "PatientId", "DoctorId", "ExpiryDate", });
+    internal_static_prescriptionsService_AddDrugRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_prescriptionsService_AddDrugRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_prescriptionsService_AddDrugRequest_descriptor,
+        new java.lang.String[] { "PrescriptionsId", "Drug", "Doses", "Comment", });
+    internal_static_prescriptionsService_Prescription_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_prescriptionsService_Prescription_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prescriptionsService_Prescription_descriptor,
-        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "Password", "Role", });
+        new java.lang.String[] { "Id", "PatientId", "DoctorId", "ExpiryDate", });
+    internal_static_prescriptionsService_Drug_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_prescriptionsService_Drug_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_prescriptionsService_Drug_descriptor,
+        new java.lang.String[] { "Id", "PrescriptionsId", "Drug", "Doses", "Comment", });
     internal_static_prescriptionsService_ErrorResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_prescriptionsService_ErrorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prescriptionsService_ErrorResponse_descriptor,
         new java.lang.String[] { "ErrorMessage", });
     internal_static_prescriptionsService_Empty_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_prescriptionsService_Empty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prescriptionsService_Empty_descriptor,

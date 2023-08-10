@@ -1,18 +1,22 @@
 package server.services;
 
-import io.grpc.*;
-import io.grpc.protobuf.ProtoUtils;
+import io.grpc.Server;
+import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import server.jmDNS.ServiceRegistration;
-import server.services.authService.*;
+import server.services.authService.AuthGrpc;
+import server.services.authService.LoginRequest;
+import server.services.authService.RegisterRequest;
+import server.services.authService.User;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.util.ArrayList;
 
 public class AuthService extends AuthGrpc.AuthImplBase {
     // Properties
-//    private int servicePort;
-    final static int SERVICE_PORT = 50052;
+//    private static int servicePort;
+    final static int SERVICE_PORT = 8080;
     final static String SERVICE_TYPE = "_auth._tcp.local.";
     final static String SERVICE_NAME = "authService";
     final static String SERVICE_DESCRIPTION = "Authorisation service for registering and granting access to users.";
@@ -25,7 +29,7 @@ public class AuthService extends AuthGrpc.AuthImplBase {
     public AuthService() {
 //        // Comment this try-catch block to use static port
 //        try(ServerSocket socket = new ServerSocket(0)) {
-//            this.servicePort = socket.getLocalPort();
+//            servicePort = socket.getLocalPort();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
@@ -36,17 +40,18 @@ public class AuthService extends AuthGrpc.AuthImplBase {
 
     // Methods
     public static void main(String[] args) {
+        AuthService authService = new AuthService();
         try{
             // Register service
-//            ServiceRegistration serviceRegistration = new ServiceRegistration();
-//            serviceRegistration.register(this.SERVICE_PORT, this.SERVICE_TYPE, this.SERVICE_NAME, this.SERVICE_DESCRIPTION);
+            ServiceRegistration serviceRegistration = new ServiceRegistration();
+            serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             //set the port and add the services implemented
-//            Server server = ServerBuildeer.forPort(this.servicePort)
+//            Server server = ServerBuilder.forPort(servicePort)
             Server server = ServerBuilder.forPort(SERVICE_PORT)
-                    .addService(new AuthService())
+                    .addService(authService)
                     .build();
             server.start();
-//            System.out.println("\nAuth server started on port " + this.servicePort);
+//            System.out.println("\nAuth server started on port " + servicePort);
             System.out.println("\nAuth server started on port " + SERVICE_PORT);
             server.awaitTermination();
         } catch(IOException | InterruptedException e) {

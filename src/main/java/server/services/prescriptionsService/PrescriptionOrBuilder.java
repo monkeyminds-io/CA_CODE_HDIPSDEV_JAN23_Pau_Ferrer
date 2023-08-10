@@ -18,52 +18,32 @@ public interface PrescriptionOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>string firstName = 2;</code>
+   * <code>string patientId = 2;</code>
    */
-  java.lang.String getFirstName();
+  java.lang.String getPatientId();
   /**
-   * <code>string firstName = 2;</code>
+   * <code>string patientId = 2;</code>
    */
   com.google.protobuf.ByteString
-      getFirstNameBytes();
+      getPatientIdBytes();
 
   /**
-   * <code>string lastName = 3;</code>
+   * <code>string doctorId = 3;</code>
    */
-  java.lang.String getLastName();
+  java.lang.String getDoctorId();
   /**
-   * <code>string lastName = 3;</code>
+   * <code>string doctorId = 3;</code>
    */
   com.google.protobuf.ByteString
-      getLastNameBytes();
+      getDoctorIdBytes();
 
   /**
-   * <code>string email = 4;</code>
+   * <code>string expiryDate = 4;</code>
    */
-  java.lang.String getEmail();
+  java.lang.String getExpiryDate();
   /**
-   * <code>string email = 4;</code>
+   * <code>string expiryDate = 4;</code>
    */
   com.google.protobuf.ByteString
-      getEmailBytes();
-
-  /**
-   * <code>string password = 5;</code>
-   */
-  java.lang.String getPassword();
-  /**
-   * <code>string password = 5;</code>
-   */
-  com.google.protobuf.ByteString
-      getPasswordBytes();
-
-  /**
-   * <code>string role = 6;</code>
-   */
-  java.lang.String getRole();
-  /**
-   * <code>string role = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getRoleBytes();
+      getExpiryDateBytes();
 }

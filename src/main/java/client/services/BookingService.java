@@ -1,31 +1,32 @@
 package client.services;
 
 import client.controllers.Appointment;
+import client.jmDNS.ServiceDiscovery;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import server.services.bookingService.*;
 
+import javax.jmdns.ServiceInfo;
 import java.util.ArrayList;
 
 public class BookingService {
     // Properties
     final String SERVICE_TYPE = "_booking._tcp.local.";
     final String HOST = "localhost";
-    private int port = 50053;
+//    private int port = 50053;
+    private int port;
     private ManagedChannel channel;
     private BookingGrpc.BookingBlockingStub blockingStub;
-
     private BookingGrpc.BookingStub asyncStub;
 
     // Constructors
-
     public BookingService() {
         // Discovering service
-//        ServiceDiscovery serviceDiscovery = new ServiceDiscovery();
-//        ServiceInfo serviceInfo = serviceDiscovery.discover(this.SERVICE_TYPE);
-//        this.port = serviceInfo.getPort(); // Comment to use static port
+        ServiceDiscovery serviceDiscovery = new ServiceDiscovery();
+        ServiceInfo serviceInfo = serviceDiscovery.discover(this.SERVICE_TYPE);
+        this.port = serviceInfo.getPort(); // Comment to use static port
         // Connecting to service
         this.setChannel(ManagedChannelBuilder.forAddress(this.HOST, this.port)
                 .usePlaintext()
@@ -33,7 +34,6 @@ public class BookingService {
         // Creating the stub
         this.setBlockingStub(BookingGrpc.newBlockingStub(this.getChannel()));
         this.setAsyncStub(BookingGrpc.newStub(this.getChannel()));
-        System.out.println("Listening to Booking Service in port " + this.port);
     }
 
     // Getters & Setters
@@ -144,20 +144,14 @@ public class BookingService {
                         Integer.parseInt(appointment.getDoctorId()),
                         appointment.getDateTime()));
             }
-
             @Override
             public void onError(Throwable throwable) {
                 throwable.printStackTrace();
             }
-
             @Override
-            public void onCompleted() {
-
-            }
+            public void onCompleted() {}
         };
-
         StreamObserver<ShiftListRequest> requestObserver = this.asyncStub.shiftList(responseObserver);
-
         try {
             for (Integer integer : idList) {
                 requestObserver.onNext(ShiftListRequest.newBuilder()
@@ -169,7 +163,6 @@ public class BookingService {
             System.err.println("RPC failed {0} " + e.getStatus());
             System.err.println(e.getMessage());
         }
-
         return response;
     }
 }

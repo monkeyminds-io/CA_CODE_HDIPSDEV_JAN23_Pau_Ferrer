@@ -26,4 +26,14 @@ public interface CreateRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDoctorIdBytes();
+
+  /**
+   * <code>string expiryDate = 3;</code>
+   */
+  java.lang.String getExpiryDate();
+  /**
+   * <code>string expiryDate = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getExpiryDateBytes();
 }

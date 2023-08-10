@@ -22,7 +22,7 @@ public class LoginGui extends JFrame {
         setTitle("Health First | Login");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(320, 320);
-        setContentPane(this.mainPane);
+        setContentPane(mainPane);
         setLocationRelativeTo(null);
         setVisible(true);
 

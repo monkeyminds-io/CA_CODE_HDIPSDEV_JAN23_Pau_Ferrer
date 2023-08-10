@@ -1,19 +1,19 @@
 package server.services;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import server.jmDNS.ServiceRegistration;
 import server.services.bookingService.*;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.util.ArrayList;
 
 public class BookingService extends BookingGrpc.BookingImplBase {
     // Properties
-//    private int servicePort;
-    final static int SERVICE_PORT = 50053;
+//    private static int servicePort;
+    final static int SERVICE_PORT = 8081;
     final static String SERVICE_TYPE = "_booking._tcp.local.";
     final static String SERVICE_NAME = "bookingService";
     final static String SERVICE_DESCRIPTION = "Booking service to manage appointments.";
@@ -25,9 +25,9 @@ public class BookingService extends BookingGrpc.BookingImplBase {
 
     // Constructors
     public BookingService() {
-        //        // Comment this try-catch block to use static port
+//        // Comment this try-catch block to use static port
 //        try(ServerSocket socket = new ServerSocket(0)) {
-//            this.servicePort = socket.getLocalPort();
+//            servicePort = socket.getLocalPort();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
@@ -38,17 +38,18 @@ public class BookingService extends BookingGrpc.BookingImplBase {
 
     // Methods
     public static void main(String[] args) {
+        BookingService bookingService = new BookingService();
         try{
             // Register service
-//            ServiceRegistration serviceRegistration = new ServiceRegistration();
-//            serviceRegistration.register(this.SERVICE_PORT, this.SERVICE_TYPE, this.SERVICE_NAME, this.SERVICE_DESCRIPTION);
-            //set the port and add the services implemented
-//            Server server = ServerBuildeer.forPort(this.servicePort)
+            ServiceRegistration serviceRegistration = new ServiceRegistration();
+            serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
+            // set the port and add the services implemented
+//            Server server = ServerBuilder.forPort(servicePort)
             Server server = ServerBuilder.forPort(SERVICE_PORT)
-                    .addService(new BookingService())
+                    .addService(bookingService)
                     .build();
             server.start();
-//            System.out.println("\nAuth server started on port " + this.servicePort);
+//            System.out.println("\nBooking server started on port " + servicePort);
             System.out.println("\nBooking server started on port " + SERVICE_PORT);
             server.awaitTermination();
         } catch(IOException | InterruptedException e) {
@@ -96,13 +97,13 @@ public class BookingService extends BookingGrpc.BookingImplBase {
     // Overrides
     @Override
     public void create(CreateRequest request, StreamObserver<Appointment> responseObserver) {
-        // Create the new user String array object
+        // Create the new String array object
         String[] newAppointment = new String[4];
         newAppointment[0] = String.valueOf(this.lastIndex + 1);
         newAppointment[1] = request.getPatientId();
         newAppointment[2] = request.getDoctorId();
         newAppointment[3] = request.getDateTime();
-        // Add user record to ArrayList
+        // Add record to ArrayList
         this.appointments.add(newAppointment);
         this.lastIndex++;
         // Persist new user in csv file

@@ -4,22 +4,23 @@
 package server.services.prescriptionsService;
 
 /**
- * Protobuf type {@code prescriptionsService.Prescription}
+ * Protobuf type {@code prescriptionsService.Drug}
  */
-public  final class Prescription extends
+public  final class Drug extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:prescriptionsService.Prescription)
-    PrescriptionOrBuilder {
+    // @@protoc_insertion_point(message_implements:prescriptionsService.Drug)
+    DrugOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Prescription.newBuilder() to construct.
-  private Prescription(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use Drug.newBuilder() to construct.
+  private Drug(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Prescription() {
+  private Drug() {
     id_ = "";
-    patientId_ = "";
-    doctorId_ = "";
-    expiryDate_ = "";
+    prescriptionsId_ = "";
+    drug_ = "";
+    doses_ = "";
+    comment_ = "";
   }
 
   @java.lang.Override
@@ -27,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Prescription(
+  private Drug(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -55,19 +56,25 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            patientId_ = s;
+            prescriptionsId_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            doctorId_ = s;
+            drug_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            expiryDate_ = s;
+            doses_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            comment_ = s;
             break;
           }
           default: {
@@ -91,15 +98,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Prescription_descriptor;
+    return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Drug_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Prescription_fieldAccessorTable
+    return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Drug_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            server.services.prescriptionsService.Prescription.class, server.services.prescriptionsService.Prescription.Builder.class);
+            server.services.prescriptionsService.Drug.class, server.services.prescriptionsService.Drug.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -136,102 +143,136 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PATIENTID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object patientId_;
+  public static final int PRESCRIPTIONSID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object prescriptionsId_;
   /**
-   * <code>string patientId = 2;</code>
+   * <code>string prescriptionsId = 2;</code>
    */
-  public java.lang.String getPatientId() {
-    java.lang.Object ref = patientId_;
+  public java.lang.String getPrescriptionsId() {
+    java.lang.Object ref = prescriptionsId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      patientId_ = s;
+      prescriptionsId_ = s;
       return s;
     }
   }
   /**
-   * <code>string patientId = 2;</code>
+   * <code>string prescriptionsId = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getPatientIdBytes() {
-    java.lang.Object ref = patientId_;
+      getPrescriptionsIdBytes() {
+    java.lang.Object ref = prescriptionsId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      patientId_ = b;
+      prescriptionsId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int DOCTORID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object doctorId_;
+  public static final int DRUG_FIELD_NUMBER = 3;
+  private volatile java.lang.Object drug_;
   /**
-   * <code>string doctorId = 3;</code>
+   * <code>string drug = 3;</code>
    */
-  public java.lang.String getDoctorId() {
-    java.lang.Object ref = doctorId_;
+  public java.lang.String getDrug() {
+    java.lang.Object ref = drug_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      doctorId_ = s;
+      drug_ = s;
       return s;
     }
   }
   /**
-   * <code>string doctorId = 3;</code>
+   * <code>string drug = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getDoctorIdBytes() {
-    java.lang.Object ref = doctorId_;
+      getDrugBytes() {
+    java.lang.Object ref = drug_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      doctorId_ = b;
+      drug_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int EXPIRYDATE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object expiryDate_;
+  public static final int DOSES_FIELD_NUMBER = 4;
+  private volatile java.lang.Object doses_;
   /**
-   * <code>string expiryDate = 4;</code>
+   * <code>string doses = 4;</code>
    */
-  public java.lang.String getExpiryDate() {
-    java.lang.Object ref = expiryDate_;
+  public java.lang.String getDoses() {
+    java.lang.Object ref = doses_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      expiryDate_ = s;
+      doses_ = s;
       return s;
     }
   }
   /**
-   * <code>string expiryDate = 4;</code>
+   * <code>string doses = 4;</code>
    */
   public com.google.protobuf.ByteString
-      getExpiryDateBytes() {
-    java.lang.Object ref = expiryDate_;
+      getDosesBytes() {
+    java.lang.Object ref = doses_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      expiryDate_ = b;
+      doses_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int COMMENT_FIELD_NUMBER = 5;
+  private volatile java.lang.Object comment_;
+  /**
+   * <code>string comment = 5;</code>
+   */
+  public java.lang.String getComment() {
+    java.lang.Object ref = comment_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      comment_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string comment = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getCommentBytes() {
+    java.lang.Object ref = comment_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      comment_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -255,14 +296,17 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (!getPatientIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, patientId_);
+    if (!getPrescriptionsIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, prescriptionsId_);
     }
-    if (!getDoctorIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, doctorId_);
+    if (!getDrugBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, drug_);
     }
-    if (!getExpiryDateBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, expiryDate_);
+    if (!getDosesBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, doses_);
+    }
+    if (!getCommentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, comment_);
     }
     unknownFields.writeTo(output);
   }
@@ -276,14 +320,17 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
-    if (!getPatientIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, patientId_);
+    if (!getPrescriptionsIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, prescriptionsId_);
     }
-    if (!getDoctorIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, doctorId_);
+    if (!getDrugBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, drug_);
     }
-    if (!getExpiryDateBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, expiryDate_);
+    if (!getDosesBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, doses_);
+    }
+    if (!getCommentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, comment_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -295,20 +342,22 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof server.services.prescriptionsService.Prescription)) {
+    if (!(obj instanceof server.services.prescriptionsService.Drug)) {
       return super.equals(obj);
     }
-    server.services.prescriptionsService.Prescription other = (server.services.prescriptionsService.Prescription) obj;
+    server.services.prescriptionsService.Drug other = (server.services.prescriptionsService.Drug) obj;
 
     boolean result = true;
     result = result && getId()
         .equals(other.getId());
-    result = result && getPatientId()
-        .equals(other.getPatientId());
-    result = result && getDoctorId()
-        .equals(other.getDoctorId());
-    result = result && getExpiryDate()
-        .equals(other.getExpiryDate());
+    result = result && getPrescriptionsId()
+        .equals(other.getPrescriptionsId());
+    result = result && getDrug()
+        .equals(other.getDrug());
+    result = result && getDoses()
+        .equals(other.getDoses());
+    result = result && getComment()
+        .equals(other.getComment());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -322,80 +371,82 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
-    hash = (37 * hash) + PATIENTID_FIELD_NUMBER;
-    hash = (53 * hash) + getPatientId().hashCode();
-    hash = (37 * hash) + DOCTORID_FIELD_NUMBER;
-    hash = (53 * hash) + getDoctorId().hashCode();
-    hash = (37 * hash) + EXPIRYDATE_FIELD_NUMBER;
-    hash = (53 * hash) + getExpiryDate().hashCode();
+    hash = (37 * hash) + PRESCRIPTIONSID_FIELD_NUMBER;
+    hash = (53 * hash) + getPrescriptionsId().hashCode();
+    hash = (37 * hash) + DRUG_FIELD_NUMBER;
+    hash = (53 * hash) + getDrug().hashCode();
+    hash = (37 * hash) + DOSES_FIELD_NUMBER;
+    hash = (53 * hash) + getDoses().hashCode();
+    hash = (37 * hash) + COMMENT_FIELD_NUMBER;
+    hash = (53 * hash) + getComment().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(byte[] data)
+  public static server.services.prescriptionsService.Drug parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(java.io.InputStream input)
+  public static server.services.prescriptionsService.Drug parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static server.services.prescriptionsService.Prescription parseDelimitedFrom(java.io.InputStream input)
+  public static server.services.prescriptionsService.Drug parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static server.services.prescriptionsService.Prescription parseDelimitedFrom(
+  public static server.services.prescriptionsService.Drug parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static server.services.prescriptionsService.Prescription parseFrom(
+  public static server.services.prescriptionsService.Drug parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -408,7 +459,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(server.services.prescriptionsService.Prescription prototype) {
+  public static Builder newBuilder(server.services.prescriptionsService.Drug prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -424,26 +475,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code prescriptionsService.Prescription}
+   * Protobuf type {@code prescriptionsService.Drug}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:prescriptionsService.Prescription)
-      server.services.prescriptionsService.PrescriptionOrBuilder {
+      // @@protoc_insertion_point(builder_implements:prescriptionsService.Drug)
+      server.services.prescriptionsService.DrugOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Prescription_descriptor;
+      return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Drug_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Prescription_fieldAccessorTable
+      return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Drug_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              server.services.prescriptionsService.Prescription.class, server.services.prescriptionsService.Prescription.Builder.class);
+              server.services.prescriptionsService.Drug.class, server.services.prescriptionsService.Drug.Builder.class);
     }
 
-    // Construct using server.services.prescriptionsService.Prescription.newBuilder()
+    // Construct using server.services.prescriptionsService.Drug.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -463,11 +514,13 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = "";
 
-      patientId_ = "";
+      prescriptionsId_ = "";
 
-      doctorId_ = "";
+      drug_ = "";
 
-      expiryDate_ = "";
+      doses_ = "";
+
+      comment_ = "";
 
       return this;
     }
@@ -475,17 +528,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Prescription_descriptor;
+      return server.services.prescriptionsService.PrescriptionsServiceImpl.internal_static_prescriptionsService_Drug_descriptor;
     }
 
     @java.lang.Override
-    public server.services.prescriptionsService.Prescription getDefaultInstanceForType() {
-      return server.services.prescriptionsService.Prescription.getDefaultInstance();
+    public server.services.prescriptionsService.Drug getDefaultInstanceForType() {
+      return server.services.prescriptionsService.Drug.getDefaultInstance();
     }
 
     @java.lang.Override
-    public server.services.prescriptionsService.Prescription build() {
-      server.services.prescriptionsService.Prescription result = buildPartial();
+    public server.services.prescriptionsService.Drug build() {
+      server.services.prescriptionsService.Drug result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -493,12 +546,13 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public server.services.prescriptionsService.Prescription buildPartial() {
-      server.services.prescriptionsService.Prescription result = new server.services.prescriptionsService.Prescription(this);
+    public server.services.prescriptionsService.Drug buildPartial() {
+      server.services.prescriptionsService.Drug result = new server.services.prescriptionsService.Drug(this);
       result.id_ = id_;
-      result.patientId_ = patientId_;
-      result.doctorId_ = doctorId_;
-      result.expiryDate_ = expiryDate_;
+      result.prescriptionsId_ = prescriptionsId_;
+      result.drug_ = drug_;
+      result.doses_ = doses_;
+      result.comment_ = comment_;
       onBuilt();
       return result;
     }
@@ -537,30 +591,34 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof server.services.prescriptionsService.Prescription) {
-        return mergeFrom((server.services.prescriptionsService.Prescription)other);
+      if (other instanceof server.services.prescriptionsService.Drug) {
+        return mergeFrom((server.services.prescriptionsService.Drug)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(server.services.prescriptionsService.Prescription other) {
-      if (other == server.services.prescriptionsService.Prescription.getDefaultInstance()) return this;
+    public Builder mergeFrom(server.services.prescriptionsService.Drug other) {
+      if (other == server.services.prescriptionsService.Drug.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
         onChanged();
       }
-      if (!other.getPatientId().isEmpty()) {
-        patientId_ = other.patientId_;
+      if (!other.getPrescriptionsId().isEmpty()) {
+        prescriptionsId_ = other.prescriptionsId_;
         onChanged();
       }
-      if (!other.getDoctorId().isEmpty()) {
-        doctorId_ = other.doctorId_;
+      if (!other.getDrug().isEmpty()) {
+        drug_ = other.drug_;
         onChanged();
       }
-      if (!other.getExpiryDate().isEmpty()) {
-        expiryDate_ = other.expiryDate_;
+      if (!other.getDoses().isEmpty()) {
+        doses_ = other.doses_;
+        onChanged();
+      }
+      if (!other.getComment().isEmpty()) {
+        comment_ = other.comment_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -578,11 +636,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      server.services.prescriptionsService.Prescription parsedMessage = null;
+      server.services.prescriptionsService.Drug parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (server.services.prescriptionsService.Prescription) e.getUnfinishedMessage();
+        parsedMessage = (server.services.prescriptionsService.Drug) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -661,209 +719,278 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object patientId_ = "";
+    private java.lang.Object prescriptionsId_ = "";
     /**
-     * <code>string patientId = 2;</code>
+     * <code>string prescriptionsId = 2;</code>
      */
-    public java.lang.String getPatientId() {
-      java.lang.Object ref = patientId_;
+    public java.lang.String getPrescriptionsId() {
+      java.lang.Object ref = prescriptionsId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        patientId_ = s;
+        prescriptionsId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string patientId = 2;</code>
+     * <code>string prescriptionsId = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getPatientIdBytes() {
-      java.lang.Object ref = patientId_;
+        getPrescriptionsIdBytes() {
+      java.lang.Object ref = prescriptionsId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        patientId_ = b;
+        prescriptionsId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string patientId = 2;</code>
+     * <code>string prescriptionsId = 2;</code>
      */
-    public Builder setPatientId(
+    public Builder setPrescriptionsId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      patientId_ = value;
+      prescriptionsId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string patientId = 2;</code>
+     * <code>string prescriptionsId = 2;</code>
      */
-    public Builder clearPatientId() {
+    public Builder clearPrescriptionsId() {
       
-      patientId_ = getDefaultInstance().getPatientId();
+      prescriptionsId_ = getDefaultInstance().getPrescriptionsId();
       onChanged();
       return this;
     }
     /**
-     * <code>string patientId = 2;</code>
+     * <code>string prescriptionsId = 2;</code>
      */
-    public Builder setPatientIdBytes(
+    public Builder setPrescriptionsIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      patientId_ = value;
+      prescriptionsId_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object doctorId_ = "";
+    private java.lang.Object drug_ = "";
     /**
-     * <code>string doctorId = 3;</code>
+     * <code>string drug = 3;</code>
      */
-    public java.lang.String getDoctorId() {
-      java.lang.Object ref = doctorId_;
+    public java.lang.String getDrug() {
+      java.lang.Object ref = drug_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        doctorId_ = s;
+        drug_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string doctorId = 3;</code>
+     * <code>string drug = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getDoctorIdBytes() {
-      java.lang.Object ref = doctorId_;
+        getDrugBytes() {
+      java.lang.Object ref = drug_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        doctorId_ = b;
+        drug_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string doctorId = 3;</code>
+     * <code>string drug = 3;</code>
      */
-    public Builder setDoctorId(
+    public Builder setDrug(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      doctorId_ = value;
+      drug_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string doctorId = 3;</code>
+     * <code>string drug = 3;</code>
      */
-    public Builder clearDoctorId() {
+    public Builder clearDrug() {
       
-      doctorId_ = getDefaultInstance().getDoctorId();
+      drug_ = getDefaultInstance().getDrug();
       onChanged();
       return this;
     }
     /**
-     * <code>string doctorId = 3;</code>
+     * <code>string drug = 3;</code>
      */
-    public Builder setDoctorIdBytes(
+    public Builder setDrugBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      doctorId_ = value;
+      drug_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object expiryDate_ = "";
+    private java.lang.Object doses_ = "";
     /**
-     * <code>string expiryDate = 4;</code>
+     * <code>string doses = 4;</code>
      */
-    public java.lang.String getExpiryDate() {
-      java.lang.Object ref = expiryDate_;
+    public java.lang.String getDoses() {
+      java.lang.Object ref = doses_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        expiryDate_ = s;
+        doses_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string expiryDate = 4;</code>
+     * <code>string doses = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getExpiryDateBytes() {
-      java.lang.Object ref = expiryDate_;
+        getDosesBytes() {
+      java.lang.Object ref = doses_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        expiryDate_ = b;
+        doses_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string expiryDate = 4;</code>
+     * <code>string doses = 4;</code>
      */
-    public Builder setExpiryDate(
+    public Builder setDoses(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      expiryDate_ = value;
+      doses_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string expiryDate = 4;</code>
+     * <code>string doses = 4;</code>
      */
-    public Builder clearExpiryDate() {
+    public Builder clearDoses() {
       
-      expiryDate_ = getDefaultInstance().getExpiryDate();
+      doses_ = getDefaultInstance().getDoses();
       onChanged();
       return this;
     }
     /**
-     * <code>string expiryDate = 4;</code>
+     * <code>string doses = 4;</code>
      */
-    public Builder setExpiryDateBytes(
+    public Builder setDosesBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      expiryDate_ = value;
+      doses_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object comment_ = "";
+    /**
+     * <code>string comment = 5;</code>
+     */
+    public java.lang.String getComment() {
+      java.lang.Object ref = comment_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        comment_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string comment = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCommentBytes() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        comment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string comment = 5;</code>
+     */
+    public Builder setComment(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      comment_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string comment = 5;</code>
+     */
+    public Builder clearComment() {
+      
+      comment_ = getDefaultInstance().getComment();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string comment = 5;</code>
+     */
+    public Builder setCommentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      comment_ = value;
       onChanged();
       return this;
     }
@@ -880,41 +1007,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:prescriptionsService.Prescription)
+    // @@protoc_insertion_point(builder_scope:prescriptionsService.Drug)
   }
 
-  // @@protoc_insertion_point(class_scope:prescriptionsService.Prescription)
-  private static final server.services.prescriptionsService.Prescription DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:prescriptionsService.Drug)
+  private static final server.services.prescriptionsService.Drug DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new server.services.prescriptionsService.Prescription();
+    DEFAULT_INSTANCE = new server.services.prescriptionsService.Drug();
   }
 
-  public static server.services.prescriptionsService.Prescription getDefaultInstance() {
+  public static server.services.prescriptionsService.Drug getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Prescription>
-      PARSER = new com.google.protobuf.AbstractParser<Prescription>() {
+  private static final com.google.protobuf.Parser<Drug>
+      PARSER = new com.google.protobuf.AbstractParser<Drug>() {
     @java.lang.Override
-    public Prescription parsePartialFrom(
+    public Drug parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Prescription(input, extensionRegistry);
+      return new Drug(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Prescription> parser() {
+  public static com.google.protobuf.Parser<Drug> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Prescription> getParserForType() {
+  public com.google.protobuf.Parser<Drug> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public server.services.prescriptionsService.Prescription getDefaultInstanceForType() {
+  public server.services.prescriptionsService.Drug getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
