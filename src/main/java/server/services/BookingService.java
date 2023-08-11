@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BookingService extends BookingGrpc.BookingImplBase {
     // Properties
 //    private static int servicePort;
-    final static int SERVICE_PORT = 8081;
+    final static int SERVICE_PORT = 50053;
     final static String SERVICE_TYPE = "_booking._tcp.local.";
     final static String SERVICE_NAME = "bookingService";
     final static String SERVICE_DESCRIPTION = "Booking service to manage appointments.";
@@ -42,6 +42,7 @@ public class BookingService extends BookingGrpc.BookingImplBase {
         try{
             // Register service
             ServiceRegistration serviceRegistration = new ServiceRegistration();
+//            serviceRegistration.register(servicePort, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             // set the port and add the services implemented
 //            Server server = ServerBuilder.forPort(servicePort)

@@ -7,15 +7,16 @@ import server.jmDNS.ServiceRegistration;
 import server.services.prescriptionsService.*;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.util.ArrayList;
 
 public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBase {
     // Properties
-//    private int servicePort;
-    final static int SERVICE_PORT = 8082;
+//    private static int servicePort;
+    final static int SERVICE_PORT = 50054;
     final static String SERVICE_TYPE = "_prescription._tcp.local.";
-    final static String SERVICE_NAME = "bookingService";
-    final static String SERVICE_DESCRIPTION = "Booking service to manage appointments.";
+    final static String SERVICE_NAME = "prescriptionsService";
+    final static String SERVICE_DESCRIPTION = "Prescription service to manage prescriptions.";
 
     private String prescriptionsFile = new File("src/main/resources/data/prescriptions.csv").getAbsolutePath();
     private String drugsFile = new File("src/main/resources/data/drugs.csv").getAbsolutePath();
@@ -26,9 +27,9 @@ public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBas
 
     // Constructors
     public PrescriptionsService() {
-        //        // Comment this try-catch block to use static port
+//        // Comment this try-catch block to use static port
 //        try(ServerSocket socket = new ServerSocket(0)) {
-//            this.servicePort = socket.getLocalPort();
+//            servicePort = socket.getLocalPort();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
@@ -41,17 +42,19 @@ public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBas
 
     // Methods
     public static void main(String[] args) {
+        PrescriptionsService prescriptionsService = new PrescriptionsService();
         try{
             // Register service
             ServiceRegistration serviceRegistration = new ServiceRegistration();
+//            serviceRegistration.register(servicePort, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             // set the port and add the services implemented
-//            Server server = ServerBuildeer.forPort(this.servicePort)
+//            Server server = ServerBuilder.forPort(servicePort)
             Server server = ServerBuilder.forPort(SERVICE_PORT)
-                    .addService(new PrescriptionsService())
+                    .addService(prescriptionsService)
                     .build();
             server.start();
-//            System.out.println("\nAuth server started on port " + this.servicePort);
+//            System.out.println("\nAuth server started on port " + servicePort);
             System.out.println("\nPrescriptions server started on port " + SERVICE_PORT);
             server.awaitTermination();
         } catch(IOException | InterruptedException e) {
