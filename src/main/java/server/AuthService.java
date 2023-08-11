@@ -1,4 +1,4 @@
-package server.services;
+package server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -10,7 +10,6 @@ import server.services.authService.RegisterRequest;
 import server.services.authService.User;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.util.ArrayList;
 
 public class AuthService extends AuthGrpc.AuthImplBase {

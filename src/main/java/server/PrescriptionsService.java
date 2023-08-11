@@ -1,4 +1,4 @@
-package server.services;
+package server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -7,7 +7,6 @@ import server.jmDNS.ServiceRegistration;
 import server.services.prescriptionsService.*;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.util.ArrayList;
 
 public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBase {
