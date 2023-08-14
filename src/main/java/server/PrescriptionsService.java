@@ -11,8 +11,7 @@ import java.util.ArrayList;
 
 public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBase {
     // Properties
-//    private static int servicePort;
-    final static int SERVICE_PORT = 50054;
+    final static int SERVICE_PORT = 50055;
     final static String SERVICE_TYPE = "_prescription._tcp.local.";
     final static String SERVICE_NAME = "prescriptionsService";
     final static String SERVICE_DESCRIPTION = "Prescription service to manage prescriptions.";
@@ -26,12 +25,6 @@ public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBas
 
     // Constructors
     public PrescriptionsService() {
-//        // Comment this try-catch block to use static port
-//        try(ServerSocket socket = new ServerSocket(0)) {
-//            servicePort = socket.getLocalPort();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         // Get data from DB
         this.prescriptions = getDataFromCsv(this.prescriptionsFile);
         this.lastPrescriptionIndex = this.prescriptions.size();
@@ -45,15 +38,12 @@ public class PrescriptionsService extends PrescriptionsGrpc.PrescriptionsImplBas
         try{
             // Register service
             ServiceRegistration serviceRegistration = new ServiceRegistration();
-//            serviceRegistration.register(servicePort, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             // set the port and add the services implemented
-//            Server server = ServerBuilder.forPort(servicePort)
             Server server = ServerBuilder.forPort(SERVICE_PORT)
                     .addService(prescriptionsService)
                     .build();
             server.start();
-//            System.out.println("\nAuth server started on port " + servicePort);
             System.out.println("\nPrescriptions server started on port " + SERVICE_PORT);
             server.awaitTermination();
         } catch(IOException | InterruptedException e) {

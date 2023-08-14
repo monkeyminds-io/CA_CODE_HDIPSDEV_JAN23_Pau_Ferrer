@@ -12,3 +12,4 @@ id,first_name,last_name,email,password,role
 11,Pau,Ferrer,pau.ferrer@gmail.com,123Qwe$,Patient
 12,Grace,MacManus,g.macmanus@gmail.com,123Qwe$,Doctor
 13,Ami,Ferrer,woof@gmail.com,123Qwe$,Nurse
+14,Sheresh,Zahoor,sheresh.zahoor@gmail.com,123Asd$,Doctor

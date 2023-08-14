@@ -78,7 +78,7 @@ public class MainGui extends JFrame {
     private JButton getDataBookingButton;
     private JButton getDataCancelBookingButton;
 
-    public MainGui() {
+    public MainGui() throws InterruptedException {
         // DB Data
         ArrayList<String[]> users = getDataFromCsv(new File("src/main/resources/data/users.csv").getAbsolutePath());
         ArrayList<String[]> appointments = getDataFromCsv(new File("src/main/resources/data/appointments.csv").getAbsolutePath());
@@ -88,7 +88,7 @@ public class MainGui extends JFrame {
         setTitle("Health First | Dashboard");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1024, 720);
-        setContentPane(mainPane);
+        setContentPane(this.mainPane);
         setLocationRelativeTo(null);
         setVisible(true);
         // Init service tabs

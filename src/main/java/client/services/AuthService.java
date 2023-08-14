@@ -16,7 +16,7 @@ public class AuthService {
     // Properties
     final String SERVICE_TYPE = "_auth._tcp.local.";
     final String HOST = "localhost";
-//    private int port = 50052;
+//    private int port = 50056;
     private int port;
     private ManagedChannel channel;
     private AuthGrpc.AuthBlockingStub blockingStub;

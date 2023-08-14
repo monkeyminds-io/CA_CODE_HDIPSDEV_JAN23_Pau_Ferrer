@@ -24,12 +24,6 @@ public class BookingService extends BookingGrpc.BookingImplBase {
 
     // Constructors
     public BookingService() {
-//        // Comment this try-catch block to use static port
-//        try(ServerSocket socket = new ServerSocket(0)) {
-//            servicePort = socket.getLocalPort();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         // Get data from DB
         this.appointments = getDataFromCsv(this.appointmentsFile);
         this.lastIndex = this.appointments.size();
@@ -41,15 +35,12 @@ public class BookingService extends BookingGrpc.BookingImplBase {
         try{
             // Register service
             ServiceRegistration serviceRegistration = new ServiceRegistration();
-//            serviceRegistration.register(servicePort, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             // set the port and add the services implemented
-//            Server server = ServerBuilder.forPort(servicePort)
             Server server = ServerBuilder.forPort(SERVICE_PORT)
                     .addService(bookingService)
                     .build();
             server.start();
-//            System.out.println("\nBooking server started on port " + servicePort);
             System.out.println("\nBooking server started on port " + SERVICE_PORT);
             server.awaitTermination();
         } catch(IOException | InterruptedException e) {

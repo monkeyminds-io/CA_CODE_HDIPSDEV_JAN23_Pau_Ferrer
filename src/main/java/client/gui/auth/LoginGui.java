@@ -22,7 +22,7 @@ public class LoginGui extends JFrame {
         setTitle("Health First | Login");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(320, 320);
-        setContentPane(mainPane);
+        setContentPane(this.mainPane);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -31,7 +31,7 @@ public class LoginGui extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     loginButtonClicked();
-                } catch (ServiceException ex) {
+                } catch (ServiceException | InterruptedException ex) {
                     JOptionPane.showMessageDialog(LoginGui.super.rootPane,
                             "The credentials are not correct.\nPlease, try again with correct credentials.",
                             "Wrong credentials",
@@ -46,7 +46,7 @@ public class LoginGui extends JFrame {
                 if(e.getKeyCode() == 10) {
                     try {
                         loginButtonClicked();
-                    } catch (ServiceException ex) {
+                    } catch (ServiceException | InterruptedException ex) {
                         JOptionPane.showMessageDialog(LoginGui.super.rootPane,
                                 "The credentials are not correct.\nPlease, try again with correct credentials.",
                                 "Wrong credentials",
@@ -58,7 +58,7 @@ public class LoginGui extends JFrame {
         });
     }
 
-    private void loginButtonClicked() throws ServiceException {
+    private void loginButtonClicked() throws ServiceException, InterruptedException {
         // Get data from fields
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());

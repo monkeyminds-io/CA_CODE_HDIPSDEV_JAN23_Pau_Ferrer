@@ -6,7 +6,6 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
-import server.services.bookingService.BookingGrpc;
 import server.services.prescriptionsService.*;
 
 import javax.jmdns.ServiceInfo;
@@ -16,7 +15,7 @@ public class PrescriptionsService {
     // Properties
     final String SERVICE_TYPE = "_prescription._tcp.local.";
     final String HOST = "localhost";
-    //    private int port = 50054;
+//    private int port = 50055;
     private int port;
     private ManagedChannel channel;
     private PrescriptionsGrpc.PrescriptionsBlockingStub blockingStub;

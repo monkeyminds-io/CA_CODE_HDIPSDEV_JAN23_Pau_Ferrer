@@ -14,8 +14,7 @@ import java.util.ArrayList;
 
 public class AuthService extends AuthGrpc.AuthImplBase {
     // Properties
-//    private static int servicePort;
-    final static int SERVICE_PORT = 50052;
+    final static int SERVICE_PORT = 50056;
     final static String SERVICE_TYPE = "_auth._tcp.local.";
     final static String SERVICE_NAME = "authService";
     final static String SERVICE_DESCRIPTION = "Authorisation service for registering and granting access to users.";
@@ -26,12 +25,6 @@ public class AuthService extends AuthGrpc.AuthImplBase {
 
     // Constructors
     public AuthService() {
-//        // Comment this try-catch block to use static port
-//        try(ServerSocket socket = new ServerSocket(0)) {
-//            servicePort = socket.getLocalPort();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         // Get data from DB
         this.users = getDataFromCsv(this.usersFile);
         this.lastIndex = this.users.size();
@@ -43,15 +36,12 @@ public class AuthService extends AuthGrpc.AuthImplBase {
         try{
             // Register service
             ServiceRegistration serviceRegistration = new ServiceRegistration();
-//            serviceRegistration.register(servicePort, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             serviceRegistration.register(SERVICE_PORT, SERVICE_TYPE, SERVICE_NAME, SERVICE_DESCRIPTION);
             //set the port and add the services implemented
-//            Server server = ServerBuilder.forPort(servicePort)
             Server server = ServerBuilder.forPort(SERVICE_PORT)
                     .addService(authService)
                     .build();
             server.start();
-//            System.out.println("\nAuth server started on port " + servicePort);
             System.out.println("\nAuth server started on port " + SERVICE_PORT);
             server.awaitTermination();
         } catch(IOException | InterruptedException e) {
